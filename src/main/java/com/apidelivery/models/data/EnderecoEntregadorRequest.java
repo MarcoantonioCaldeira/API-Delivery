@@ -9,7 +9,7 @@ public class EnderecoEntregadorRequest {
     private String Cidade;
     private String Bairro;
     private String Rua;
-    private Integer num_casa;
+    private String num_casa;
 
 
     @NotBlank(message = "O campo CEP é obrigatorio")
@@ -54,11 +54,11 @@ public class EnderecoEntregadorRequest {
 
     @NotBlank(message = "O numero da casa é obrigatorio")
     @NotNull(message = "O numero da casa é obrigatório.")
-    public Integer getNum_casa() {
+    public String getNum_casa() {
         return num_casa;
     }
 
-    public void setNum_casa(Integer num_casa) {
+    public void setNum_casa(String num_casa) {
         this.num_casa = num_casa;
     }
 

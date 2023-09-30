@@ -5,7 +5,7 @@ public class EnderecoEntregadorResponse {
     private String Cidade;
     private String Bairro;
     private String Rua;
-    private Integer num_casa;
+    private String num_casa;
 
 
     public String getCidade() {
@@ -32,11 +32,11 @@ public class EnderecoEntregadorResponse {
         Rua = rua;
     }
 
-    public Integer getNum_casa() {
+    public String getNum_casa() {
         return num_casa;
     }
 
-    public void setNum_casa(Integer num_casa) {
+    public void setNum_casa(String num_casa) {
         this.num_casa = num_casa;
     }
 

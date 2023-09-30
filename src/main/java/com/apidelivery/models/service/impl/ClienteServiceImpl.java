@@ -92,7 +92,7 @@ public class ClienteServiceImpl implements ClienteService {
         return entityConversor.parseListObjects(clienteRepository.findAll(), ClienteResponse.class);
     }
 
-    @Override
+   // @Override
     @Transactional(readOnly = true)
     public List<ClienteResponse> list(String key) {
         return entityConversor.parseListObjects(clienteRepository.findByNome(key), ClienteResponse.class);

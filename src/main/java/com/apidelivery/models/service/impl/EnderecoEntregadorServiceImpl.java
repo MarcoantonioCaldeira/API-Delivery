@@ -72,7 +72,7 @@ public class EnderecoEntregadorServiceImpl implements EnderecoEntregadorService 
     @Override
     @Transactional(readOnly = true)
     public List<EnderecoEntregadorResponse> list(String num_casa) {
-        return entityConversor.parseListObjects(enderecoEntregadorRepository.findByNumCasa(num_casa), EnderecoEntregadorResponse.class;
+        return entityConversor.parseListObjects(enderecoEntregadorRepository.findByNumero_casa(num_casa), EnderecoEntregadorResponse.class);
     }
 
     @Override
@@ -87,7 +87,7 @@ public class EnderecoEntregadorServiceImpl implements EnderecoEntregadorService 
         return pageUserResponse;
     }
 
-    @Override
+   // @Override
     public Page<EnderecoEntregadorResponse> listPagedByKey(String key, Integer actualPage, Integer pageSize, String order, String props) {
         Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
 

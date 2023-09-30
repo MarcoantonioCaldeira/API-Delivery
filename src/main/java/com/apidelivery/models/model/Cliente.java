@@ -5,6 +5,7 @@ import com.apidelivery.models.pk.PrimaryKey;
 import jakarta.persistence.*;
 
 
+
 @Entity
 @Table(name="TB_CLIENTE")
 public class Cliente extends PrimaryKey{
@@ -68,8 +69,8 @@ public class Cliente extends PrimaryKey{
 	}
 
 
-	public void setSenha(String senha) {
-		Senha = senha;
+	public void setSenha(String Senha) {
+		this.Senha = Senha;
 	}
 
 	@Column(name="CONFIRMAR_SENHA", length=100, nullable=false)
