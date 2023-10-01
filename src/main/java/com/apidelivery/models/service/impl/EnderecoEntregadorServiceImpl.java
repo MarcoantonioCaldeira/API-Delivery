@@ -19,82 +19,82 @@ import java.util.List;
 
 @Service
 @Transactional
-public class EnderecoEntregadorServiceImpl implements EnderecoEntregadorService {
+public class EnderecoEntregadorServiceImpl{
 
-    @Autowired //O spring instancia automaticamente
-    private EnderecoEntregadorRepository enderecoEntregadorRepository;
-
-    @Autowired
-    private EntityConversor entityConversor;
-
-
-    @Override
-    public EnderecoEntregadorResponse save(EnderecoEntregadorRequest entity) {
-        EnderecoEntregador enderecoEntregador = entityConversor.parseObject(entity, EnderecoEntregador.class);
-
-        enderecoEntregador = enderecoEntregadorRepository.save(enderecoEntregador);
-        EnderecoEntregadorResponse enderecoEntregadorResponse = entityConversor.parseObject(enderecoEntregador, EnderecoEntregadorResponse.class);
-
-        return enderecoEntregadorResponse;
-    }
-
-    @Override
-    public EnderecoEntregadorResponse update(Long id, EnderecoEntregadorRequest entity) {
-        EnderecoEntregador enderecoEntregador = enderecoEntregadorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Entidade não encontrada"));
-        EnderecoEntregador userConv = entityConversor.parseObject(entity, EnderecoEntregador.class);
-
-
-        enderecoEntregador = enderecoEntregadorRepository.saveAndFlush(enderecoEntregador); //Força o salvamento sem ficar em memória intermediária
-        EnderecoEntregadorResponse enderecoEntregadorResponse = entityConversor.parseObject(userConv, EnderecoEntregadorResponse.class);
-
-        return enderecoEntregadorResponse;
-    }
-
-    @Override
-    public void delete(Long id) {
-        enderecoEntregadorRepository.deleteById(id);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public EnderecoEntregadorResponse read(Long id) {
-        EnderecoEntregador enderecoEntregador = enderecoEntregadorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Entidade não encontrada"));
-
-        return entityConversor.parseObject(enderecoEntregador, EnderecoEntregadorResponse.class);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<EnderecoEntregadorResponse> list() {
-        return entityConversor.parseListObjects(enderecoEntregadorRepository.findAll(), EnderecoEntregadorResponse.class);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<EnderecoEntregadorResponse> list(String num_casa) {
-        return entityConversor.parseListObjects(enderecoEntregadorRepository.findByNumero_casa(num_casa), EnderecoEntregadorResponse.class);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Page<EnderecoEntregadorResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props) {
-        Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
-
-        Page<EnderecoEntregador> enderecoEntregadorList = enderecoEntregadorRepository.findAllPagination(page);
-        List<EnderecoEntregadorResponse> enderecoEntregadorListResponse = entityConversor.parseListObjects(enderecoEntregadorList.getContent(), EnderecoEntregadorResponse.class);
-        Page<EnderecoEntregadorResponse> pageUserResponse = new PageImpl<>(enderecoEntregadorListResponse, enderecoEntregadorList.getPageable(), enderecoEntregadorList.getTotalElements());
-
-        return pageUserResponse;
-    }
-
-   // @Override
-    public Page<EnderecoEntregadorResponse> listPagedByKey(String key, Integer actualPage, Integer pageSize, String order, String props) {
-        Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
-
-        Page<EnderecoEntregador> enderecoEntregadorList = enderecoEntregadorRepository.findAllPaginationWithKey(key, page);
-        List<EnderecoEntregadorResponse> enderecoEntregadorListResponse = entityConversor.parseListObjects(enderecoEntregadorList .getContent(), EnderecoEntregadorResponse.class);
-        Page<EnderecoEntregadorResponse> pageEnderecoEntregadorResponse = new PageImpl<>(enderecoEntregadorListResponse, enderecoEntregadorList .getPageable(), enderecoEntregadorList .getTotalElements());
-
-        return pageEnderecoEntregadorResponse;
-    }
+//    @Autowired //O spring instancia automaticamente
+//    private EnderecoEntregadorRepository enderecoEntregadorRepository;
+//
+//    @Autowired
+//    private EntityConversor entityConversor;
+//
+//
+//    @Override
+//    public EnderecoEntregadorResponse save(EnderecoEntregadorRequest entity) {
+//        EnderecoEntregador enderecoEntregador = entityConversor.parseObject(entity, EnderecoEntregador.class);
+//
+//        enderecoEntregador = enderecoEntregadorRepository.save(enderecoEntregador);
+//        EnderecoEntregadorResponse enderecoEntregadorResponse = entityConversor.parseObject(enderecoEntregador, EnderecoEntregadorResponse.class);
+//
+//        return enderecoEntregadorResponse;
+//    }
+//
+//    @Override
+//    public EnderecoEntregadorResponse update(Long id, EnderecoEntregadorRequest entity) {
+//        EnderecoEntregador enderecoEntregador = enderecoEntregadorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Entidade não encontrada"));
+//        EnderecoEntregador userConv = entityConversor.parseObject(entity, EnderecoEntregador.class);
+//
+//
+//        enderecoEntregador = enderecoEntregadorRepository.saveAndFlush(enderecoEntregador); //Força o salvamento sem ficar em memória intermediária
+//        EnderecoEntregadorResponse enderecoEntregadorResponse = entityConversor.parseObject(userConv, EnderecoEntregadorResponse.class);
+//
+//        return enderecoEntregadorResponse;
+//    }
+//
+//    @Override
+//    public void delete(Long id) {
+//        enderecoEntregadorRepository.deleteById(id);
+//    }
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public EnderecoEntregadorResponse read(Long id) {
+//        EnderecoEntregador enderecoEntregador = enderecoEntregadorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Entidade não encontrada"));
+//
+//        return entityConversor.parseObject(enderecoEntregador, EnderecoEntregadorResponse.class);
+//    }
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<EnderecoEntregadorResponse> list() {
+//        return entityConversor.parseListObjects(enderecoEntregadorRepository.findAll(), EnderecoEntregadorResponse.class);
+//    }
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<EnderecoEntregadorResponse> list(String num_casa) {
+//        return entityConversor.parseListObjects(enderecoEntregadorRepository.findByNumero_casa(num_casa), EnderecoEntregadorResponse.class);
+//    }
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public Page<EnderecoEntregadorResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props) {
+//        Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
+//
+//        Page<EnderecoEntregador> enderecoEntregadorList = enderecoEntregadorRepository.findAllPagination(page);
+//        List<EnderecoEntregadorResponse> enderecoEntregadorListResponse = entityConversor.parseListObjects(enderecoEntregadorList.getContent(), EnderecoEntregadorResponse.class);
+//        Page<EnderecoEntregadorResponse> pageUserResponse = new PageImpl<>(enderecoEntregadorListResponse, enderecoEntregadorList.getPageable(), enderecoEntregadorList.getTotalElements());
+//
+//        return pageUserResponse;
+//    }
+//
+//   // @Override
+//    public Page<EnderecoEntregadorResponse> listPagedByKey(String key, Integer actualPage, Integer pageSize, String order, String props) {
+//        Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
+//
+//        Page<EnderecoEntregador> enderecoEntregadorList = enderecoEntregadorRepository.findAllPaginationWithKey(key, page);
+//        List<EnderecoEntregadorResponse> enderecoEntregadorListResponse = entityConversor.parseListObjects(enderecoEntregadorList .getContent(), EnderecoEntregadorResponse.class);
+//        Page<EnderecoEntregadorResponse> pageEnderecoEntregadorResponse = new PageImpl<>(enderecoEntregadorListResponse, enderecoEntregadorList .getPageable(), enderecoEntregadorList .getTotalElements());
+//
+//        return pageEnderecoEntregadorResponse;
+//    }
 }

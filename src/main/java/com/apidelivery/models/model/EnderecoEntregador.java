@@ -1,22 +1,20 @@
 package com.apidelivery.models.model;
 
 import com.apidelivery.models.pk.PrimaryKey;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "TB_ENDERECO_ENTREGADOR")
 public class EnderecoEntregador extends PrimaryKey{
 
-	private Integer CEP;
+	private String CEP;
 	private String Cidade;
 	private String Bairro;
 	private String Rua;
 	private String numero_casa;
 	
 	
-	public EnderecoEntregador(Integer CEP, String Cidade, String Bairro, String Rua, String numero_casa) {
+	public EnderecoEntregador(String CEP, String Cidade, String Bairro, String Rua, String numero_casa) {
 		this.CEP = CEP;
 		this.Cidade = Cidade;
 		this.Bairro = Bairro;
@@ -29,11 +27,11 @@ public class EnderecoEntregador extends PrimaryKey{
 	}
 
 	@Column(name = "CEP", length=100, nullable=false)
-	public Integer getCEP() {
+	public String getCEP() {
 		return CEP;
 	}
-	public void setCEP(Integer CEP) {
-		CEP = CEP;
+	public void setCEP(String CEP) {
+		this.CEP = CEP;
 	}
 
 
@@ -55,7 +53,7 @@ public class EnderecoEntregador extends PrimaryKey{
 	}
 
 
-	@Column(name = "RUA", length=100, nullable=false)
+	@Column(name = "RUA", length=100,  nullable=false)
 	public String getRua() {
 		return Rua;
 	}

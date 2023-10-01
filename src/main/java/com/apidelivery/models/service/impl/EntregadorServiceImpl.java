@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.apidelivery.models.model.Cliente;
+import com.apidelivery.models.model.EnderecoEntregador;
 import com.apidelivery.models.model.Entregador;
 import com.apidelivery.models.service.exception.EntityNotFoundException;
 import com.apidelivery.models.service.mapper.EntityConversor;
@@ -39,12 +40,16 @@ public class EntregadorServiceImpl implements EntregadorService {
         Entregador entregador = entityConversor.parseObject(entity, Entregador.class);
 
         Optional<Entregador> entregadorSaved = entregadorRepository.findByEmail(entregador.getEmail());
+
         if(entregadorSaved.isPresent() && entregadorSaved.get().equals(entregador)) {
             throw new EmailAlreadyExistsException("O email informado já está cadastrado");
         }
         if(!entity.getSenha().equals(entity.getConfirmarSenha())) {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
+
+        EnderecoEntregador enderecoEntregador = entityConversor.parseObject(entity, EnderecoEntregador.class);
+        entregador.setEndereco(enderecoEntregador);
 
         entregador = entregadorRepository.save(entregador);
         EntregadorResponse entregadorResponse = entityConversor.parseObject(entregador, EntregadorResponse.class);

@@ -23,28 +23,31 @@ public class Entregador extends PrimaryKey{
 	private String cpf;
 	private String telefone;
 	private String cnh;
-	private Integer TipoEntrega;
+	private Long tipoEntrega;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ENDERECO_ID")
 	private EnderecoEntregador endereco;
-	private String Senha;
+	private String senha;
 	private String confirmarSenha;
 	
 	
-	public Entregador(String nome, String sobrenome, String email, String cpf, String telefone, String cnh, Integer TipoEntrega, EnderecoEntregador endereco, String Senha, String confirmarSenha) {
+	public Entregador(String nome, String sobrenome, String email, String cpf, String telefone, String cnh, Long tipoEntrega, EnderecoEntregador endereco, String senha, String confirmarSenha) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.email = email;
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.cnh = cnh;
-		this.TipoEntrega = TipoEntrega;
+		this.tipoEntrega = tipoEntrega;
 		this.endereco = endereco;
-		this.Senha = Senha;
+		this.senha = senha;
 		this.confirmarSenha = confirmarSenha;
 	}
 
+	public Entregador() {
+
+	}
 
 
 	@Column(name = "NOME", length=100, nullable=false)
@@ -72,7 +75,7 @@ public class Entregador extends PrimaryKey{
 		this.email = email;
 	}
 
-	 @Column(name = "CPF", length=11, nullable=false)
+	 @Column(name = "CPF", length=30, nullable=false)
 	public String getCpf() {
 		return cpf;
 	}
@@ -80,7 +83,7 @@ public class Entregador extends PrimaryKey{
 		this.cpf = cpf;
 	}
 
-	 @Column(name = "TELEFONE")
+	 @Column(name = "TELEFONE", length=100, nullable=false)
 	public String getTelefone() {
 		return telefone;
 	}
@@ -88,7 +91,7 @@ public class Entregador extends PrimaryKey{
 		this.telefone = telefone;
 	}
 
-	@Column(name = "CNH")
+	@Column(name = "CNH", length=100, nullable=false)
 	public String getCnh() {
 		return cnh;
 	}
@@ -96,15 +99,15 @@ public class Entregador extends PrimaryKey{
 		this.cnh = cnh;
 	}
 
-	@Column(name = "TIPO_ENTREGA")
-	public Integer getTipoEntrega() {
-		return TipoEntrega;
+	@Column(name = "TIPO_ENTREGA", length=100, nullable=false)
+	public Long getTipoEntrega() {
+		return tipoEntrega;
 	}
-	public void setTipoEntrega(Integer tipoEntrega) {
-		TipoEntrega = tipoEntrega;
+	public void setTipoEntrega(Long tipoEntrega) {
+		this.tipoEntrega = tipoEntrega;
 	}
 
-	@Column(name="ENDERECO", length=100, nullable=false)
+	@Column(name="ENDERECO", length=100)
 	public EnderecoEntregador getEndereco(){
 		return endereco;
 	}
@@ -113,12 +116,12 @@ public class Entregador extends PrimaryKey{
 	}
 
 
-	@Column(name = "SENHA", nullable = false)
+	@Column(name = "SENHA", length=100, nullable=false)
 	public String getSenha() {
-		return Senha;
+		return senha;
 	}
 	public void setSenha(String senha) {
-		Senha = senha;
+		this.senha = senha;
 	}
 
 	@Column(name="CONFIRMAR_SENHA", length=100, nullable=false)
@@ -132,8 +135,8 @@ public class Entregador extends PrimaryKey{
 
 	@Override
 	public String toString(){
-		return "Entregador{" + ", nome='" + nome + '\'' + ", sobrenome='" + sobrenome + '\'' + "email: " + email + ", cpf='" + cpf + '\'' + ", telefone='" + telefone + '\'' + ", cnh='" + cnh + '\'' + ", tipoEntrega=" + TipoEntrega + ", endereco=" + endereco +
-		", senha=" + Senha + ", Confirmação de Senha=" + confirmarSenha + '}';
+		return "Entregador{" + ", nome='" + nome + '\'' + ", sobrenome='" + sobrenome + '\'' + "email: " + email + ", cpf='" + cpf + '\'' + ", telefone='" + telefone + '\'' + ", cnh='" + cnh + '\'' + ", Tipo de Entrega=" + tipoEntrega + ", endereco=" + endereco +
+		", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + '}';
 	}
 
 }

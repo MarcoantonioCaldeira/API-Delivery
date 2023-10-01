@@ -5,20 +5,20 @@ import jakarta.validation.constraints.NotNull;
 
 public class EnderecoEntregadorRequest {
 
-    private Integer CEP;
+    private String CEP;
     private String Cidade;
     private String Bairro;
     private String Rua;
-    private String num_casa;
+    private String numero_casa;
 
 
     @NotBlank(message = "O campo CEP é obrigatorio")
     @NotNull(message = "O campo CEP é obrigatorio")
-    public Integer getCEP() {
+    public String getCEP() {
         return CEP;
     }
 
-    public void setCEP(Integer CEP) {
+    public void setCEP(String CEP) {
         this.CEP = CEP;
     }
 
@@ -28,8 +28,8 @@ public class EnderecoEntregadorRequest {
         return Cidade;
     }
 
-    public void setCidade(String cidade) {
-        Cidade = cidade;
+    public void setCidade(String Cidade) {
+        this.Cidade = Cidade;
     }
 
     @NotBlank(message = "O campo bairro é obrigatorio")
@@ -38,8 +38,8 @@ public class EnderecoEntregadorRequest {
         return Bairro;
     }
 
-    public void setBairro(String bairro) {
-        Bairro = bairro;
+    public void setBairro(String Bairro) {
+        this.Bairro = Bairro;
     }
 
     @NotBlank(message = "O campo Rua é obrigatorio")
@@ -48,18 +48,22 @@ public class EnderecoEntregadorRequest {
         return Rua;
     }
 
-    public void setRua(String rua) {
-        Rua = rua;
+    public void setRua(String Rua) {
+        this.Rua = Rua;
     }
 
     @NotBlank(message = "O numero da casa é obrigatorio")
-    @NotNull(message = "O numero da casa é obrigatório.")
+    @NotNull(message = "O numero da casa é obrigatorio")
     public String getNum_casa() {
-        return num_casa;
+        return numero_casa;
     }
 
-    public void setNum_casa(String num_casa) {
-        this.num_casa = num_casa;
+    public void setNum_casa(String numero_casa) {
+        this.numero_casa = numero_casa;
     }
 
+    @Override
+    public String toString(){
+        return "EntregadorRequest [CEP=" + CEP + ", Cidade=" + Cidade + ", Bairro="+ Bairro + ", Rua="+ Rua +",  Numero da casa="+ numero_casa + "]";
+    }
 }

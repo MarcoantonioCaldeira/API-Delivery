@@ -69,7 +69,7 @@ public class EntregadorController implements EntregadorControllerApi {
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> saveDelivery(@Valid @RequestBody EntregadorRequest entregadorRequest) { //O RequestBody é o comando que lê o que chegou do http
         EntregadorResponse entregadorResponse = entregadorService.save(entregadorRequest);
-        SystemMessage<EntregadorResponse> userMessage = new SystemMessage<>(HttpStatus.OK.value(), "Usuário cadastrado com sucesso.", entregadorResponse);
+        SystemMessage<EntregadorResponse> userMessage = new SystemMessage<>(HttpStatus.OK.value(), "Entregador cadastrado com sucesso.", entregadorResponse);
 
         return ResponseEntity.ok().body(userMessage);
     }
