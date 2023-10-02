@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name = "TB_ENDERECO_ENTREGADOR")
 public class EnderecoEntregador extends PrimaryKey{
 
+
 	private String CEP;
 	private String Cidade;
 	private String Bairro;
@@ -26,7 +27,7 @@ public class EnderecoEntregador extends PrimaryKey{
 
 	}
 
-	@Column(name = "CEP", length=100, nullable=false)
+	@Column(name = "CEP", length=100)
 	public String getCEP() {
 		return CEP;
 	}
@@ -35,7 +36,7 @@ public class EnderecoEntregador extends PrimaryKey{
 	}
 
 
-	@Column(name = "CIDADE", length=100, nullable=false)
+	@Column(name = "CIDADE", length=100)
 	public String getCidade() {
 		return Cidade;
 	}
@@ -44,7 +45,7 @@ public class EnderecoEntregador extends PrimaryKey{
 	}
 
 
-	@Column(name = "BAIRRO", length=100, nullable=false)
+	@Column(name = "BAIRRO", length=100)
 	public String getBairro() {
 		return Bairro;
 	}
@@ -53,7 +54,7 @@ public class EnderecoEntregador extends PrimaryKey{
 	}
 
 
-	@Column(name = "RUA", length=100,  nullable=false)
+	@Column(name = "RUA", length=100)
 	public String getRua() {
 		return Rua;
 	}
@@ -62,7 +63,7 @@ public class EnderecoEntregador extends PrimaryKey{
 	}
 
 
-	@Column(name = "NUM_CASA", length=5, nullable=false)
+	@Column(name = "NUM_CASA", length=5)
 	public String getNumero_casa() {
 		return numero_casa;
 	}

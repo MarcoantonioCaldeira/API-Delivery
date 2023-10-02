@@ -49,9 +49,11 @@ public class EntregadorServiceImpl implements EntregadorService {
         }
 
         EnderecoEntregador enderecoEntregador = entityConversor.parseObject(entity, EnderecoEntregador.class);
+
         entregador.setEndereco(enderecoEntregador);
 
         entregador = entregadorRepository.save(entregador);
+
         EntregadorResponse entregadorResponse = entityConversor.parseObject(entregador, EntregadorResponse.class);
 
         return entregadorResponse;

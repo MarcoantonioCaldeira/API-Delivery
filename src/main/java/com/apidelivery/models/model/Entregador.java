@@ -1,22 +1,21 @@
 package com.apidelivery.models.model;
 
 import com.apidelivery.models.pk.PrimaryKey;
-//import com.apidelivery.models.model.EnderecoEntregador;
+import com.apidelivery.models.model.EnderecoEntregador;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "ENTREGADORES")
-public class Entregador extends PrimaryKey{
+public class Entregador implements Serializable {
 
 
-	private static final long serialVersionUID = -522379480005861691L;
-	
+	//private static final long serialVersionUID = -522379480005861691L;
+
+
+	private Long id;
 	private String nome;
 	private String sobrenome;
 	private String email;
@@ -26,12 +25,13 @@ public class Entregador extends PrimaryKey{
 	private Long tipoEntrega;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "ENDERECO_ID")
+	@JoinColumn(name = "endereco_id", referencedColumnName = "ID_USER")
 	private EnderecoEntregador endereco;
+
 	private String senha;
 	private String confirmarSenha;
-	
-	
+
+
 	public Entregador(String nome, String sobrenome, String email, String cpf, String telefone, String cnh, Long tipoEntrega, EnderecoEntregador endereco, String senha, String confirmarSenha) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -49,6 +49,15 @@ public class Entregador extends PrimaryKey{
 
 	}
 
+	public Long getId() {
+		return id;
+	}
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "ID_USER")
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Column(name = "NOME", length=100, nullable=false)
 	public String getNome() {
@@ -107,7 +116,7 @@ public class Entregador extends PrimaryKey{
 		this.tipoEntrega = tipoEntrega;
 	}
 
-	@Column(name="ENDERECO", length=100)
+
 	public EnderecoEntregador getEndereco(){
 		return endereco;
 	}
@@ -131,7 +140,6 @@ public class Entregador extends PrimaryKey{
 	public void setConfirmarSenha(String confirmarSenha) {
 		this.confirmarSenha = confirmarSenha;
 	}
-
 
 	@Override
 	public String toString(){

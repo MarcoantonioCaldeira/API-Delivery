@@ -18,7 +18,7 @@ public class EntregadorRequest {
     private String cnh;
     private String telefone;
     private Long tipoEntrega;
-    private EnderecoEntregadorRequest endereco;
+    private EnderecoEntregador endereco;
     private String senha;
     private String confirmarSenha;
 
@@ -126,13 +126,13 @@ public class EntregadorRequest {
         this.confirmarSenha = confirmarSenha;
     }
 
-    @NotBlank(message = "O endereco é obrigatorio")
-    @NotNull(message = "O endereco é obrigatorio")
-    public EnderecoEntregadorRequest getEndereco() {
+    //@NotBlank(message = "O endereco é obrigatorio")
+    //@NotNull(message = "O endereco é obrigatorio")
+    public EnderecoEntregador getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(EnderecoEntregadorRequest endereco) {
+    public void setEndereco(EnderecoEntregador endereco) {
         this.endereco = endereco;
     }
 
