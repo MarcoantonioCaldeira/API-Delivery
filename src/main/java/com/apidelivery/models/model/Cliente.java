@@ -1,16 +1,37 @@
 package com.apidelivery.models.model;
 
-import com.apidelivery.models.pk.PrimaryKey;
 
+import com.apidelivery.models.pk.PrimaryKey;
 import jakarta.persistence.*;
 
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Objects;
 
 
 @Entity
 @Table(name="TB_CLIENTE")
-public class Cliente extends PrimaryKey{
-	
-	private static final long serialVersionUID = 3771197349299941491L;
+public class Cliente implements Serializable{
+
+
+
+	private static final long serialVersionUID = 6679001107878287172L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "ID_CLIENTE")
+	private Long id;
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	
 	private String email;
 
@@ -35,6 +56,7 @@ public class Cliente extends PrimaryKey{
 	public Cliente() {
 
 	}
+
 
 
 	@Column(name="USERNAME", length=100, nullable=false)
@@ -83,7 +105,23 @@ public class Cliente extends PrimaryKey{
 		this.confirmarSenha = confirmarSenha;
 	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+
+			return true;
+
+		if (obj == null)
+
+			return false;
+
+		if (getClass() != obj.getClass())
+
+			return false;
+
+		Cliente other = (Cliente) obj;
+		return Objects.equals(id, other.id);
+	}
 	
 	@Override
 	public String toString() {

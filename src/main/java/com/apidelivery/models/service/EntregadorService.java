@@ -5,5 +5,4 @@ import com.apidelivery.models.data.EntregadorResponse;
 
 public interface EntregadorService extends GenericService<EntregadorResponse, EntregadorRequest, Long>{
 
-
 }

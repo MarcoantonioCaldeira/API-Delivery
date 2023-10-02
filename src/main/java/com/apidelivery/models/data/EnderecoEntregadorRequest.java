@@ -12,8 +12,6 @@ public class EnderecoEntregadorRequest {
     private String numero_casa;
 
 
-    //@NotBlank(message = "O campo CEP é obrigatorio")
-    //@NotNull(message = "O campo CEP é obrigatorio")
     public String getCEP() {
         return CEP;
     }
@@ -22,8 +20,7 @@ public class EnderecoEntregadorRequest {
         this.CEP = CEP;
     }
 
-    //@NotBlank(message = "O campo cidade é obrigatorio")
-    //@NotNull(message = "O campo cidade é obrigatorio")
+
     public String getCidade() {
         return Cidade;
     }
@@ -32,8 +29,7 @@ public class EnderecoEntregadorRequest {
         this.Cidade = Cidade;
     }
 
-    //@NotBlank(message = "O campo bairro é obrigatorio")
-    //@NotNull(message = "O campo bairro é obrigatorio")
+
     public String getBairro() {
         return Bairro;
     }
@@ -42,8 +38,7 @@ public class EnderecoEntregadorRequest {
         this.Bairro = Bairro;
     }
 
-    //@NotBlank(message = "O campo Rua é obrigatorio")
-    //@NotNull(message = "O campo Rua é obrigatorio")
+
     public String getRua() {
         return Rua;
     }
@@ -52,8 +47,7 @@ public class EnderecoEntregadorRequest {
         this.Rua = Rua;
     }
 
-    //@NotBlank(message = "O numero da casa é obrigatorio")
-    //@NotNull(message = "O numero da casa é obrigatorio")
+
     public String getNum_casa() {
         return numero_casa;
     }
