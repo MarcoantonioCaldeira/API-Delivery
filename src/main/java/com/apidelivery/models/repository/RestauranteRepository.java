@@ -26,6 +26,18 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
     Page<Restaurante> findAllPagination(Pageable page);
 
 
-    @Query(value = "SELECT u FROM Restaurante u WHERE u.id LIKE(CONCAT('%',:key,'%')) OR u.nome LIKE(CONCAT('%',:key,'%')) OR u.email LIKE(CONCAT('%',:key,'%')) ", countQuery = "SELECT COUNT(u) FROM Restaurante u")
+//    @Query(value = "SELECT u FROM Restaurante u WHERE u.id LIKE(CONCAT('%',:key,'%')) OR u.nome LIKE(CONCAT('%',:key,'%')) OR u.email LIKE(CONCAT('%',:key,'%')) ", countQuery = "SELECT COUNT(u) FROM Restaurante u")
+//    public Page<Restaurante> findAllPaginationWithKey(@Param("key") String key, Pageable page);
+
+
+    @Query(value = "SELECT u FROM Restaurante u WHERE " +
+            "CASE " +
+            "  WHEN u.id LIKE(CONCAT('%',:key,'%')) THEN TRUE " +
+            "  WHEN u.nome_restaurante LIKE(CONCAT('%',:key,'%')) THEN TRUE " +
+            "  WHEN u.email LIKE(CONCAT('%',:key,'%')) THEN TRUE " +
+            "  ELSE FALSE " +
+            "END = TRUE",
+            countQuery = "SELECT COUNT(u) FROM Restaurante u")
     public Page<Restaurante> findAllPaginationWithKey(@Param("key") String key, Pageable page);
+
 }

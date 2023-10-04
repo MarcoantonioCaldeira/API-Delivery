@@ -1,6 +1,6 @@
 package com.apidelivery.web.swagger;
 
-import com.apidelivery.models.data.ClienteResponse;
+
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
 import jakarta.validation.Valid;

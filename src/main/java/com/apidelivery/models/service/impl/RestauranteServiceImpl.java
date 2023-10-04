@@ -2,7 +2,6 @@ package com.apidelivery.models.service.impl;
 
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
-import com.apidelivery.models.model.EnderecoRestaurante;
 import com.apidelivery.models.model.Restaurante;
 import com.apidelivery.models.repository.RestauranteRepository;
 import com.apidelivery.models.service.RestauranteService;
@@ -44,12 +43,7 @@ public class RestauranteServiceImpl implements RestauranteService {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
 
-        EnderecoRestaurante enderecoRestaurante = entityConversor.parseObject(entity, EnderecoRestaurante.class);
-
-        restaurante.setEndereco(enderecoRestaurante);
-
         restaurante = restauranteRepository.save(restaurante);
-
         RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
 
         return restauranteResponse;

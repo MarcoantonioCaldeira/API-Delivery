@@ -1,6 +1,5 @@
 package com.apidelivery.models.model;
 
-import com.apidelivery.models.pk.PrimaryKey;
 import jakarta.persistence.*;
 
 import java.io.Serial;
