@@ -31,6 +31,10 @@ public class Cliente implements Serializable{
 		this.id = id;
 	}
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pagamento_id", referencedColumnName = "ID_PAGAMENTO")
+	private FormaPagamento formaPagamento;
+
 	
 	private String email;
 
@@ -56,6 +60,14 @@ public class Cliente implements Serializable{
 
 	}
 
+
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
 
 
 	@Column(name="USERNAME", length=100, nullable=false)

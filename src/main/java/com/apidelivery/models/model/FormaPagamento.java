@@ -35,13 +35,16 @@ public class FormaPagamento implements Serializable {
     }
 
     public void setTipoPagamento(Integer tipoPagamento) {
+
         if(tipoPagamento != 1 && tipoPagamento != 2){
             throw new IllegalArgumentException("Valor de tipoPagamento inválido. Use 1 para Débito e 2 para Crédito.");
         }
         this.tipoPagamento = tipoPagamento;
+
     }
 
 
+    @Column(name = "NUMERO_CARTAO", length=100)
     public String getNum_cartao() {
         return num_cartao;
     }
@@ -50,7 +53,7 @@ public class FormaPagamento implements Serializable {
         this.num_cartao = num_cartao;
     }
 
-
+    @Column(name = "NOME_IMPRESSO", length=100)
     public String getNomeImpresso() {
         return nomeImpresso;
     }
@@ -59,7 +62,7 @@ public class FormaPagamento implements Serializable {
         this.nomeImpresso = nomeImpresso;
     }
 
-
+    @Column(name = "VALIDADE", length=100)
     public String getValidadeCartao() {
         return validadeCartao;
     }
@@ -68,7 +71,7 @@ public class FormaPagamento implements Serializable {
         this.validadeCartao = validadeCartao;
     }
 
-
+    @Column(name = "CVV", length=100)
     public String getCvvCartao() {
         return CvvCartao;
     }
@@ -77,7 +80,7 @@ public class FormaPagamento implements Serializable {
         CvvCartao = cvvCartao;
     }
 
-
+    @Column(name = "NOME_APELIDO", length=100)
     public String getNome_Apelido() {
         return Nome_Apelido;
     }
@@ -86,7 +89,7 @@ public class FormaPagamento implements Serializable {
         Nome_Apelido = nome_Apelido;
     }
 
-
+    @Column(name = "CPF_CNPJ", length=100)
     public String getCpf_cnpj() {
         return cpf_cnpj;
     }
@@ -94,7 +97,6 @@ public class FormaPagamento implements Serializable {
     public void setCpf_cnpj(String cpf_cnpj) {
         this.cpf_cnpj = cpf_cnpj;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -112,6 +114,11 @@ public class FormaPagamento implements Serializable {
 
         FormaPagamento other = (FormaPagamento) obj;
         return Objects.equals(id, other.id);
+    }
+
+    @Override
+    public String toString(){
+        return "Forma de Pagamento [Tipo=" + tipoPagamento + ", Numero do Cartão=" + num_cartao + ", Nome Impresso=" + nomeImpresso + "CVV="  + CvvCartao + "Validade=" + validadeCartao + "Nome Apelido=" + Nome_Apelido + "CPF_CNPJ=" + cpf_cnpj +"]";
     }
 
 

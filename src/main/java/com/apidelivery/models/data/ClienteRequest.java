@@ -1,5 +1,6 @@
 package com.apidelivery.models.data;
 
+import com.apidelivery.models.model.FormaPagamento;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,6 +8,8 @@ import jakarta.validation.constraints.NotNull;
 public class ClienteRequest {
 
     private Long id;
+
+    private FormaPagamento formaPagamento;
     private String email;
     private String nome;
     private String telefone;
@@ -68,9 +71,17 @@ public class ClienteRequest {
         this.confirmarSenha = confirmar_senha;
     }
 
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
     @Override
     public String toString() {
-        return "UserRequest [id=" + id + ", Nome=" + nome + ", Telefone="+ telefone +", email=" + email + ", Senha=" + senha
+        return "UserRequest [id=" + id + ", Forma de pagamento " + formaPagamento + " + Nome=" + nome + ", Telefone="+ telefone +", email=" + email + ", Senha=" + senha
                 + ", Confirmação de Senha=" + confirmarSenha + "]";
     }
 
