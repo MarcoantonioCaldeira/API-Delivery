@@ -19,7 +19,6 @@ public class EnderecoEntregador implements Serializable {
 	@Column(name = "ID_ENDERECO_ENTREGADOR")
 	private Long id;
 
-
 	public Long getId() {
 		return id;
 	}
@@ -28,20 +27,18 @@ public class EnderecoEntregador implements Serializable {
 		this.id = id;
 	}
 
-
-
-	private String CEP;
-	private String Cidade;
-	private String Bairro;
-	private String Rua;
+	private String cep;
+	private String cidade;
+	private String bairro;
+	private String rua;
 	private String numero_casa;
 	
 	
-	public EnderecoEntregador(String CEP, String Cidade, String Bairro, String Rua, String numero_casa) {
-		this.CEP = CEP;
-		this.Cidade = Cidade;
-		this.Bairro = Bairro;
-		this.Rua = Rua;
+	public EnderecoEntregador(String cep, String cidade, String bairro, String rua, String numero_casa) {
+		this.cep = cep;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.rua = rua;
 		this.numero_casa = numero_casa;
 	}
 
@@ -51,37 +48,37 @@ public class EnderecoEntregador implements Serializable {
 
 	@Column(name = "CEP", length=100)
 	public String getCEP() {
-		return CEP;
+		return cep;
 	}
-	public void setCEP(String CEP) {
-		this.CEP = CEP;
+	public void setCEP(String cep) {
+		this.cep = cep;
 	}
 
 
 	@Column(name = "CIDADE", length=100)
 	public String getCidade() {
-		return Cidade;
+		return cidade;
 	}
 	public void setCidade(String cidade) {
-		Cidade = cidade;
+		this.cidade = cidade;
 	}
 
 
 	@Column(name = "BAIRRO", length=100)
 	public String getBairro() {
-		return Bairro;
+		return bairro;
 	}
 	public void setBairro(String bairro) {
-		Bairro = bairro;
+		this.bairro = bairro;
 	}
 
 
 	@Column(name = "RUA", length=100)
 	public String getRua() {
-		return Rua;
+		return rua;
 	}
 	public void setRua(String rua) {
-		Rua = rua;
+		this.rua = rua;
 	}
 
 

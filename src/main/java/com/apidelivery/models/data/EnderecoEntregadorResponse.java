@@ -2,47 +2,64 @@ package com.apidelivery.models.data;
 
 public class EnderecoEntregadorResponse {
 
-    private String Cidade;
-    private String Bairro;
-    private String Rua;
-    private String num_casa;
+    private String cep;
+    private String cidade;
+    private String bairro;
+    private String rua;
+    private String numero_casa;
+
+
+    public String getCEP() {
+        return cep;
+    }
+
+    public void setCEP(String cep) {
+        this.cep = cep;
+    }
+
 
 
     public String getCidade() {
-        return Cidade;
+        return cidade;
     }
 
     public void setCidade(String cidade) {
-        Cidade = cidade;
+        this.cidade = cidade;
     }
 
+
+
     public String getBairro() {
-        return Bairro;
+        return bairro;
     }
 
     public void setBairro(String bairro) {
-        Bairro = bairro;
+        this.bairro = bairro;
     }
 
+
+
     public String getRua() {
-        return Rua;
+        return rua;
     }
 
     public void setRua(String rua) {
-        Rua = rua;
+        this.rua = rua;
     }
+
+
 
     public String getNum_casa() {
-        return num_casa;
+        return numero_casa;
     }
 
-    public void setNum_casa(String num_casa) {
-        this.num_casa = num_casa;
+    public void setNum_casa(String numero_casa) {
+        this.numero_casa = numero_casa;
     }
+
 
     @Override
-    public String toString() {
-        return "EnderecoClienteResponse [Cidade = " + Cidade  + "Bairro = " + Bairro + ", Rua = " + Rua + ", Numero=" + num_casa + "]";
+    public String toString(){
+        return "EntregadorRequest [CEP=" + cep + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Rua="+ rua +",  Numero da casa="+ numero_casa + "]";
     }
-
 }

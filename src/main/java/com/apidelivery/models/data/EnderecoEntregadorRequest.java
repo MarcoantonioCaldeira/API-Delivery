@@ -5,46 +5,46 @@ import jakarta.validation.constraints.NotNull;
 
 public class EnderecoEntregadorRequest {
 
-    private String CEP;
-    private String Cidade;
-    private String Bairro;
-    private String Rua;
+    private String cep;
+    private String cidade;
+    private String bairro;
+    private String rua;
     private String numero_casa;
 
 
     public String getCEP() {
-        return CEP;
+        return cep;
     }
 
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
+    public void setCEP(String cep) {
+        this.cep = cep;
     }
 
 
     public String getCidade() {
-        return Cidade;
+        return cidade;
     }
 
-    public void setCidade(String Cidade) {
-        this.Cidade = Cidade;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
 
     public String getBairro() {
-        return Bairro;
+        return bairro;
     }
 
-    public void setBairro(String Bairro) {
-        this.Bairro = Bairro;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
 
     public String getRua() {
-        return Rua;
+        return rua;
     }
 
-    public void setRua(String Rua) {
-        this.Rua = Rua;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
 
@@ -58,6 +58,6 @@ public class EnderecoEntregadorRequest {
 
     @Override
     public String toString(){
-        return "EntregadorRequest [CEP=" + CEP + ", Cidade=" + Cidade + ", Bairro="+ Bairro + ", Rua="+ Rua +",  Numero da casa="+ numero_casa + "]";
+        return "EntregadorRequest [CEP=" + cep + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Rua="+ rua +",  Numero da casa="+ numero_casa + "]";
     }
 }

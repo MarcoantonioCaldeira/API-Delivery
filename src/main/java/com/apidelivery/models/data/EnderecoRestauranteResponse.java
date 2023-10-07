@@ -19,16 +19,16 @@ public class EnderecoRestauranteResponse {
         return Cidade;
     }
 
-    public void setCidade(String cidade) {
-        Cidade = cidade;
+    public void setCidade(String Cidade) {
+        this.Cidade = Cidade;
     }
 
     public String getBairro() {
         return Bairro;
     }
 
-    public void setBairro(String bairro) {
-        Bairro = bairro;
+    public void setBairro(String Bairro) {
+        this.Bairro = Bairro;
     }
 
     public String getNumero_end() {
