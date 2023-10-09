@@ -1,16 +1,32 @@
 package com.apidelivery.models.data;
 
+import com.apidelivery.models.model.EnderecoRestaurante;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class RestauranteRequest {
 
+    private Long id;
+    private String nome_proprietario;
+    private String especialidade;
+    private String foto_Restaurante;
     private String nome_restaurante;
-    private String CNPJ;
-    private String Telefone_Restaurante;
-    private String Email;
-    private String Senha;
-    private String ConfirmarSenha;
+    private String cnpj_cpf;
+    private String telefone_Restaurante;
+    private String email;
+    private String descricao;
+    private String senha;
+    private String confirmarSenha;
+    private EnderecoRestaurante endereco;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @NotBlank(message = "O nome do Restaurante é obrigatorio.")
     @NotNull(message = "O nome do Restaurante é obrigatorio.")
@@ -25,57 +41,106 @@ public class RestauranteRequest {
     @NotBlank(message = "O CNPJ é obrigatorio.")
     @NotNull(message = "O nome é obrigatório.")
     public String getCNPJ() {
-        return CNPJ;
+        return cnpj_cpf;
     }
 
-    public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+    public void setCNPJ(String cnpj_cpf) {
+        this.cnpj_cpf = cnpj_cpf;
     }
 
     @NotBlank(message = "O nome é obrigatório.")
     @NotNull(message = "O nome é obrigatório.")
     public String getTelefone_Restaurante() {
-        return Telefone_Restaurante;
+        return telefone_Restaurante;
     }
 
     public void setTelefone_Restaurante(String telefone_Restaurante) {
-        Telefone_Restaurante = telefone_Restaurante;
+        this.telefone_Restaurante = telefone_Restaurante;
     }
 
 
     @NotBlank(message = "O email é obrigatorio.")
     @NotNull(message = "O email é obrigatorio.")
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     @NotBlank(message = "A senha é obrigatoria.")
     @NotNull(message = "A senha é obrigatoria.")
     public String getSenha() {
-        return Senha;
+        return senha;
     }
 
     public void setSenha(String senha) {
-        Senha = senha;
+        this.senha = senha;
     }
 
     @NotBlank(message = "A Confirmação de senha é obrigatoria.")
     @NotNull(message = "A Confirmação de senha é obrigatoria.")
     public String getConfirmarSenha() {
-        return ConfirmarSenha;
+        return confirmarSenha;
     }
 
     public void setConfirmarSenha(String confirmarSenha) {
-        ConfirmarSenha = confirmarSenha;
+        this.confirmarSenha = confirmarSenha;
+    }
+
+
+    public EnderecoRestaurante getRestaurante() {
+        return endereco;
+    }
+
+    public void setRestaurante(EnderecoRestaurante endereco) {
+        this.endereco = endereco;
+    }
+
+    @NotBlank(message = "O nome do proprietario é obrigatorio.")
+    @NotNull(message = "O nome do proprietario é obrigatorio.")
+    public String getNome_proprietario() {
+        return nome_proprietario;
+    }
+
+    public void setNome_proprietario(String nome_proprietario) {
+        this.nome_proprietario = nome_proprietario;
+    }
+
+    @NotBlank(message = "A especialidade é obrigatoria.")
+    @NotNull(message = "A especialidade é obrigatoria.")
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+
+
+    public String getFoto_Restaurante() {
+        return foto_Restaurante;
+    }
+
+    public void setFoto_Restaurante(String foto_Restaurante) {
+        this.foto_Restaurante = foto_Restaurante;
+    }
+
+    @NotBlank(message = "Descricao obrigatoria.")
+    @NotNull(message = "Descricao obrigatoria.")
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
     public String toString(){
-        return "Restaurante[" + "Nome do Restaurante" + nome_restaurante + "CNPJ" + CNPJ + "Teleone" + Telefone_Restaurante + "Email" + Email + "Senha " + Senha + "Confirmação de Senha " + ConfirmarSenha + ']';
+        return "Restaurante{" + "Nome do Restaurante" + nome_restaurante + "Email " + email + "CNPJ_CPF" + cnpj_cpf + "Teleone" + telefone_Restaurante + "senha" + senha + "Confirmar Senha " + confirmarSenha + "Nome do proprietario " + nome_proprietario + "Especializade " + especialidade + "Foto " + foto_Restaurante + "Descricao " + descricao + '}';
     }
 
 }

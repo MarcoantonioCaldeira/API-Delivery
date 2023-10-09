@@ -28,40 +28,41 @@ public class EnderecoRestaurante implements Serializable {
         this.id = id;
     }
 
-
-    private String UF;
-    private String Cidade;
-    private String Bairro;
+    private String cep;
+    private String uf;
+    private String cidade;
+    private String bairro;
     private String numero_end;
+    private String complemento;
 
     @Column(name = "UF", length=100)
     public String getUF() {
-        return UF;
+        return uf;
     }
 
 
-    public void setUF(String UF) {
-        this.UF = UF;
+    public void setUF(String uf) {
+        this.uf = uf;
     }
 
     @Column(name = "CIDADE", length=100)
     public String getCidade() {
-        return Cidade;
+        return cidade;
     }
 
 
     public void setCidade(String cidade) {
-        Cidade = cidade;
+        this.cidade = cidade;
     }
 
 
     @Column(name = "BAIRRO", length=100)
     public String getBairro() {
-        return Bairro;
+        return bairro;
     }
 
     public void setBairro(String bairro) {
-        Bairro = bairro;
+        this.bairro = bairro;
     }
 
     @Column(name = "NUMERO_ENDERECO", length=100)
@@ -71,6 +72,23 @@ public class EnderecoRestaurante implements Serializable {
 
     public void setNumero_end(String numero_end) {
         this.numero_end = numero_end;
+    }
+
+    @Column(name = "CEP", length=100)
+    public String getCep() {
+        return cep;
+    }
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    @Column(name = "COMPLEMENTO", length=100)
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     @Override
@@ -90,4 +108,5 @@ public class EnderecoRestaurante implements Serializable {
         EnderecoRestaurante other = (EnderecoRestaurante) obj;
         return Objects.equals(id, other.id);
     }
+
 }

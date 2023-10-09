@@ -12,7 +12,6 @@ import com.apidelivery.models.model.EnderecoRestaurante;
 @Table(name="TB_RESTAURANTE")
 public class Restaurante implements Serializable{
 
-
     private static final long serialVersionUID = -429507710884450944L;
 
     @Id
@@ -30,25 +29,33 @@ public class Restaurante implements Serializable{
     }
 
 
-
+    private String nome_proprietario;
+    private String especialidade;
+    private String foto_Restaurante;
     private String nome_restaurante;
-    private String CNPJ;
-    private String Telefone_Restaurante;
+    private String cnpj_cpf;
+    private String telefone_Restaurante;
     private String email;
-
-    private String Senha;
-
-    private String ConfirmarSenha;
+    private String descricao;
+    private String senha;
+    private String confirmarSenha;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "RESTAURANTE_END_ID", referencedColumnName = "ID_END_RESTAURANTE")
     private EnderecoRestaurante endereco;
 
 
-    public Restaurante(String nome_restaurante, String CNPJ, String Telefone_Restaurante){
-        this.nome_restaurante = nome_restaurante;
-        this.CNPJ = CNPJ;
-        this.Telefone_Restaurante = Telefone_Restaurante;
+    public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cnpj_cpf, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha){
+      this.nome_proprietario = nome_proprietario;
+      this.especialidade = especialidade;
+      this.foto_Restaurante = foto_Restaurante;
+      this.nome_restaurante = nome_restaurante;
+      this.cnpj_cpf = cnpj_cpf;
+      this.telefone_Restaurante = telefone_Restaurante;
+      this.email = email;
+      this.descricao = descricao;
+      this.senha = senha;
+      this.confirmarSenha = confirmarSenha;
     }
 
     public Restaurante(){
@@ -64,21 +71,21 @@ public class Restaurante implements Serializable{
     }
 
 
-    @Column(name="NUMERO_CNPJ", length=100, nullable=false)
+    @Column(name="NUMERO_CNPJ_CPF", length=100, nullable=false)
     public String getCNPJ() {
-        return CNPJ;
+        return cnpj_cpf;
     }
-    public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+    public void setCNPJ(String cnpj_cnpj) {
+        this.cnpj_cpf = cnpj_cpf;
     }
 
 
     @Column(name="TELEFONE", length=100, nullable=false)
     public String getTelefone_Restaurante() {
-        return Telefone_Restaurante;
+        return telefone_Restaurante;
     }
     public void setTelefone_Restaurante(String telefone_Restaurante) {
-        Telefone_Restaurante = telefone_Restaurante;
+        this.telefone_Restaurante = telefone_Restaurante;
     }
 
 
@@ -89,30 +96,66 @@ public class Restaurante implements Serializable{
         this.endereco = endereco;
     }
 
+
     @Column(name="EMAIL", length=100, nullable=false)
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
+
     @Column(name="SENHA", length=100, nullable=false)
     public String getSenha() {
-        return Senha;
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public void setSenha(String senha) {
-        Senha = senha;
-    }
+
     @Column(name="CONFIRMAR_SENHA", length=100, nullable=false)
     public String getConfirmarSenha() {
-        return ConfirmarSenha;
+        return confirmarSenha;
+    }
+    public void setConfirmarSenha(String confirmarSenha) {
+        this.confirmarSenha = confirmarSenha;
     }
 
-    public void setConfirmarSenha(String confirmarSenha) {
-        ConfirmarSenha = confirmarSenha;
+    @Column(name="NOME_PROPRIETARIO", length=100, nullable=false)
+    public String getNome_proprietario() {
+        return nome_proprietario;
+    }
+
+    public void setNome_proprietario(String nome_proprietario) {
+        this.nome_proprietario = nome_proprietario;
+    }
+    @Column(name="ESPECIALIDADE", length=100, nullable=false)
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+    @Column(name="FOTO_RESTAURANTE", length=100)
+    public String getFoto_Restaurante() {
+        return foto_Restaurante;
+    }
+
+    public void setFoto_Restaurante(String foto_Restaurante) {
+        this.foto_Restaurante = foto_Restaurante;
+    }
+
+
+    @Column(name="DESCRICAO", length=100, nullable=false)
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 
@@ -136,7 +179,7 @@ public class Restaurante implements Serializable{
 
     @Override
     public String toString(){
-        return "Restaurante{" + "Nome do Restaurante" + nome_restaurante + "CNPJ" + CNPJ + "Teleone" + Telefone_Restaurante + '}';
+        return "Restaurante{" + "Nome do Restaurante" + nome_restaurante + "Email " + email + "CNPJ_CPF" + cnpj_cpf + "Teleone" + telefone_Restaurante + "senha" + senha + "Confirmar Senha " + confirmarSenha + "Nome do proprietario " + nome_proprietario + "Especializade " + especialidade + "Foto " + foto_Restaurante + "Descricao " + descricao + '}';
     }
 
 }

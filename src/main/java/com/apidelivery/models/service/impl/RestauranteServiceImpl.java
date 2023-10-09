@@ -35,7 +35,6 @@ public class RestauranteServiceImpl implements RestauranteService {
         Restaurante restaurante = entityConversor.parseObject(entity, Restaurante.class);
 
         Optional<Restaurante> restauranteSaved = restauranteRepository.findByEmail(restaurante.getEmail());
-
         if(restauranteSaved.isPresent() && restauranteSaved.get().equals(restaurante)) {
             throw new EmailAlreadyExistsException("O email informado já está cadastrado");
         }

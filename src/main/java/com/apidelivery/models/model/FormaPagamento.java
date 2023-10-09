@@ -26,8 +26,8 @@ public class FormaPagamento implements Serializable {
     private String num_cartao;
     private String nomeImpresso;
     private String validadeCartao;
-    private String CvvCartao;
-    private String Nome_Apelido;
+    private String cvvCartao;
+    private String nome_Apelido;
     private String cpf_cnpj;
 
     public Integer getTipoPagamento() {
@@ -73,20 +73,20 @@ public class FormaPagamento implements Serializable {
 
     @Column(name = "CVV", length=100)
     public String getCvvCartao() {
-        return CvvCartao;
+        return cvvCartao;
     }
 
     public void setCvvCartao(String cvvCartao) {
-        CvvCartao = cvvCartao;
+        this.cvvCartao = cvvCartao;
     }
 
     @Column(name = "NOME_APELIDO", length=100)
     public String getNome_Apelido() {
-        return Nome_Apelido;
+        return nome_Apelido;
     }
 
     public void setNome_Apelido(String nome_Apelido) {
-        Nome_Apelido = nome_Apelido;
+        this.nome_Apelido = nome_Apelido;
     }
 
     @Column(name = "CPF_CNPJ", length=100)
@@ -118,7 +118,7 @@ public class FormaPagamento implements Serializable {
 
     @Override
     public String toString(){
-        return "Forma de Pagamento [Tipo=" + tipoPagamento + ", Numero do Cartão=" + num_cartao + ", Nome Impresso=" + nomeImpresso + "CVV="  + CvvCartao + "Validade=" + validadeCartao + "Nome Apelido=" + Nome_Apelido + "CPF_CNPJ=" + cpf_cnpj +"]";
+        return "Forma de Pagamento [Tipo=" + tipoPagamento + ", Numero do Cartão=" + num_cartao + ", Nome Impresso=" + nomeImpresso + "CVV="  + cvvCartao + "Validade=" + validadeCartao + "Nome Apelido=" + nome_Apelido + "CPF_CNPJ=" + cpf_cnpj +"]";
     }
 
 

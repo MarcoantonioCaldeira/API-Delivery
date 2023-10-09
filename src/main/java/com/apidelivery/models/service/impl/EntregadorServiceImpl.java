@@ -40,7 +40,6 @@ public class EntregadorServiceImpl implements EntregadorService {
         Entregador entregador = entityConversor.parseObject(entity, Entregador.class);
 
         Optional<Entregador> entregadorSaved = entregadorRepository.findByEmail(entregador.getEmail());
-
         if(entregadorSaved.isPresent() && entregadorSaved.get().equals(entregador)) {
             throw new EmailAlreadyExistsException("O email informado já está cadastrado");
         }
@@ -48,12 +47,7 @@ public class EntregadorServiceImpl implements EntregadorService {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
 
-        EnderecoEntregador enderecoEntregador = entityConversor.parseObject(entity, EnderecoEntregador.class);
-
-        entregador.setEndereco(enderecoEntregador);
-
         entregador = entregadorRepository.save(entregador);
-
         EntregadorResponse entregadorResponse = entityConversor.parseObject(entregador, EntregadorResponse.class);
 
         return entregadorResponse;

@@ -2,33 +2,33 @@ package com.apidelivery.models.data;
 
 public class EnderecoRestauranteResponse {
 
-    private String UF;
-    private String Cidade;
-    private String Bairro;
+    private String uf;
+    private String cidade;
+    private String bairro;
     private String numero_end;
 
     public String getUF() {
-        return UF;
+        return uf;
     }
 
     public void setUF(String UF) {
-        this.UF = UF;
+        this.uf = uf;
     }
 
     public String getCidade() {
-        return Cidade;
+        return cidade;
     }
 
-    public void setCidade(String Cidade) {
-        this.Cidade = Cidade;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public String getBairro() {
-        return Bairro;
+        return bairro;
     }
 
-    public void setBairro(String Bairro) {
-        this.Bairro = Bairro;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
     public String getNumero_end() {
@@ -41,6 +41,6 @@ public class EnderecoRestauranteResponse {
 
     @Override
     public String toString(){
-        return "EntregadorRequest [Estado=" + UF + ", Cidade=" + Cidade + ", Bairro="+ Bairro + ", Numero ="+ numero_end + "]";
+        return "EntregadorRequest [Estado=" + uf + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Numero ="+ numero_end + "]";
     }
 }
