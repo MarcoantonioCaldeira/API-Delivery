@@ -5,7 +5,9 @@ public class EnderecoRestauranteRequest {
     private String uf;
     private String cidade;
     private String bairro;
+    private String rua;
     private String numero_end;
+    private String complemento;
 
     public String getUF() {
         return uf;
@@ -47,9 +49,25 @@ public class EnderecoRestauranteRequest {
         this.cep = cep;
     }
 
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
     @Override
     public String toString(){
-        return "EntregadorRequest [Estado=" + uf + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Numero ="+ numero_end + "CEP " + cep + "]";
+        return "EntregadorRequest [Estado=" + uf + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Numero ="+ numero_end + "CEP " + cep + "Rua " + rua + "Complemento " + complemento + "]";
     }
 
 }

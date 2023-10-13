@@ -32,6 +32,7 @@ public class EnderecoRestaurante implements Serializable {
     private String uf;
     private String cidade;
     private String bairro;
+    private String rua;
     private String numero_end;
     private String complemento;
 
@@ -89,6 +90,15 @@ public class EnderecoRestaurante implements Serializable {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+
+    @Column(name = "RUA", length=100)
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
     @Override

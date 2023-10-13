@@ -2,10 +2,13 @@ package com.apidelivery.models.data;
 
 public class EnderecoRestauranteResponse {
 
+    private String cep;
     private String uf;
     private String cidade;
     private String bairro;
+    private String rua;
     private String numero_end;
+    private String complemento;
 
     public String getUF() {
         return uf;
@@ -39,8 +42,33 @@ public class EnderecoRestauranteResponse {
         this.numero_end = numero_end;
     }
 
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
     @Override
     public String toString(){
-        return "EntregadorRequest [Estado=" + uf + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Numero ="+ numero_end + "]";
+        return "EntregadorRequest [Estado=" + uf + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Numero ="+ numero_end + "Rua" + rua + "CEP" + cep + "Complemento " + complemento + "]";
     }
+
 }
