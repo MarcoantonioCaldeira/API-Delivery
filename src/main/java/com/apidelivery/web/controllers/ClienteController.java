@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/rest/cliente")
-public class ClienteRestController implements ClienteRestControllerApi {
+public class ClienteController implements ClienteRestControllerApi {
 
     @Autowired
     private ClienteService clienteService;

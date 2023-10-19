@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/rest/restaurante")
-public class RestauranteRestController implements RestauranteRestControllerAPI {
+public class RestauranteController implements RestauranteRestControllerAPI {
 
     @Autowired
     private RestauranteService restauranteService;

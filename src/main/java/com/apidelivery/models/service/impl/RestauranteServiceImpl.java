@@ -1,7 +1,10 @@
 package com.apidelivery.models.service.impl;
 
+import com.apidelivery.models.data.EntregadorRequest;
+import com.apidelivery.models.data.EntregadorResponse;
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
+import com.apidelivery.models.model.Entregador;
 import com.apidelivery.models.model.Restaurante;
 import com.apidelivery.models.repository.RestauranteRepository;
 import com.apidelivery.models.service.RestauranteService;
@@ -24,8 +27,8 @@ import java.util.Optional;
 @Transactional
 public class RestauranteServiceImpl implements RestauranteService {
 
-    @Autowired //O spring instancia automaticamente
-    private RestauranteRepository restauranteRepository; //Não tem como instanciar normalmente pois é uma interface
+    @Autowired
+    private RestauranteRepository restauranteRepository;
 
     @Autowired
     private EntityConversor entityConversor;
@@ -47,6 +50,7 @@ public class RestauranteServiceImpl implements RestauranteService {
 
         return restauranteResponse;
     }
+
 
     @Override
     public RestauranteResponse update(Long id, RestauranteRequest entity) {

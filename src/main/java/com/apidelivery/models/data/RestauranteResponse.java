@@ -1,8 +1,7 @@
 package com.apidelivery.models.data;
 
 import com.apidelivery.models.model.EnderecoRestaurante;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 
 public class RestauranteResponse {
 
@@ -138,6 +137,7 @@ public class RestauranteResponse {
 
     @Override
     public String toString(){
-        return "Restaurante{" + "Nome do Restaurante" + nome_restaurante + "Email " + email + "CNPJ_CPF" + cnpj_cpf + "Teleone" + telefone_Restaurante + "senha" + senha + "Confirmar Senha " + confirmarSenha + "Nome do proprietario " + nome_proprietario + "Especializade " + especialidade + "Foto " + foto_Restaurante + "Descricao " + descricao + '}';
+        return "Restaurante{" + ", Nome proprietario='" + nome_proprietario + '\'' + ", Especialidade='" + especialidade + '\'' + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + '\'' + ", CNPJ_CPF='" + cnpj_cpf + '\'' + ", Telefone='" + telefone_Restaurante +
+                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + '}';
     }
 }

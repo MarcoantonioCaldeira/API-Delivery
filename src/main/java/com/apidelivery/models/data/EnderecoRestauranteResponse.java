@@ -14,7 +14,7 @@ public class EnderecoRestauranteResponse {
         return uf;
     }
 
-    public void setUF(String UF) {
+    public void setUF(String uf) {
         this.uf = uf;
     }
 

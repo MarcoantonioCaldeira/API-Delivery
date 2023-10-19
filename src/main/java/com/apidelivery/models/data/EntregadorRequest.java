@@ -17,7 +17,6 @@ public class EntregadorRequest {
     private String cpf;
     private String cnh;
     private String telefone;
-    private Long tipoEntrega;
     private EnderecoEntregador endereco;
     private String senha;
     private String confirmarSenha;
@@ -95,17 +94,6 @@ public class EntregadorRequest {
         this.telefone = telefone;
     }
 
-
-    @NotNull(message = "Escolha o tipo de Entrega.")
-    public Long getTipoEntrega() {
-        return tipoEntrega;
-    }
-
-    public void setTipoEntrega(Long tipoEntrega) {
-        this.tipoEntrega = tipoEntrega;
-    }
-
-
     @NotBlank(message = "A senha é obrigatória.")
     @NotNull(message = "A senha é obrigatória.")
     public String getSenha() {
@@ -126,8 +114,7 @@ public class EntregadorRequest {
         this.confirmarSenha = confirmarSenha;
     }
 
-    //@NotBlank(message = "O endereco é obrigatorio")
-    //@NotNull(message = "O endereco é obrigatorio")
+
     public EnderecoEntregador getEndereco() {
         return endereco;
     }
@@ -138,7 +125,7 @@ public class EntregadorRequest {
 
     @Override
     public String toString(){
-        return "EntregadorRequest [id=" + id + ", Nome=" + nome + ", Sobrenome="+ sobrenome + ", CPF="+ cpf +",  CNH="+ cnh + ", Telefone="+ telefone +", Tipo de Entrega  = "+ tipoEntrega + ",email=" + email +  "Endereco=" + endereco +
+        return "EntregadorRequest [id=" + id + ", Nome=" + nome + ", Sobrenome="+ sobrenome + ", CPF="+ cpf +",  CNH="+ cnh + ", Telefone="+ telefone +", Tipo de Entrega  = " + ",email=" + email +  "Endereco=" + endereco +
                 "Senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "]";
     }
 

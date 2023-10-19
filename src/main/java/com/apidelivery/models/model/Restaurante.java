@@ -19,7 +19,6 @@ public class Restaurante implements Serializable{
     @Column(name = "ID_RESTAURANTE")
     private Long id;
 
-
     public Long getId() {
         return id;
     }
@@ -27,7 +26,6 @@ public class Restaurante implements Serializable{
     public void setId(Long id) {
         this.id =  id;
     }
-
 
     private String nome_proprietario;
     private String especialidade;
@@ -41,11 +39,11 @@ public class Restaurante implements Serializable{
     private String confirmarSenha;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "RESTAURANTE_END_ID", referencedColumnName = "ID_END_RESTAURANTE")
+    @JoinColumn(name = "restaurante_end_id", referencedColumnName = "ID_END_RESTAURANTE")
     private EnderecoRestaurante endereco;
 
 
-    public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cnpj_cpf, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha){
+    public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cnpj_cpf, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha, EnderecoRestaurante endereco){
       this.nome_proprietario = nome_proprietario;
       this.especialidade = especialidade;
       this.foto_Restaurante = foto_Restaurante;
@@ -56,6 +54,7 @@ public class Restaurante implements Serializable{
       this.descricao = descricao;
       this.senha = senha;
       this.confirmarSenha = confirmarSenha;
+      this.endereco = endereco;
     }
 
     public Restaurante(){
@@ -75,7 +74,7 @@ public class Restaurante implements Serializable{
     public String getCNPJ() {
         return cnpj_cpf;
     }
-    public void setCNPJ(String cnpj_cnpj) {
+    public void setCNPJ(String cnpj_cpf) {
         this.cnpj_cpf = cnpj_cpf;
     }
 
@@ -179,7 +178,7 @@ public class Restaurante implements Serializable{
 
     @Override
     public String toString(){
-        return "Restaurante{" + "Nome do Restaurante" + nome_restaurante + "Email " + email + "CNPJ_CPF" + cnpj_cpf + "Teleone" + telefone_Restaurante + "senha" + senha + "Confirmar Senha " + confirmarSenha + "Nome do proprietario " + nome_proprietario + "Especializade " + especialidade + "Foto " + foto_Restaurante + "Descricao " + descricao + '}';
+        return "Restaurante{" + ", Nome proprietario='" + nome_proprietario + '\'' + ", Especialidade='" + especialidade + '\'' + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + '\'' + ", CNPJ_CPF='" + cnpj_cpf + '\'' + ", Telefone='" + telefone_Restaurante +
+                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + '}';
     }
-
 }

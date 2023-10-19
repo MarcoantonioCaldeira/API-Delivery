@@ -38,13 +38,12 @@ public class RestauranteRequest {
         this.nome_restaurante = nome_restaurante;
     }
 
-    @NotBlank(message = "O CNPJ é obrigatorio.")
-    @NotNull(message = "O nome é obrigatório.")
-    public String getCNPJ() {
+    @NotBlank(message = "O CNPJ ou CPF do Restaurante é obrigatorio.")
+    @NotNull(message = "O CNPJ ou CPF do Restaurante é obrigatorio.")
+    public String getCnpj_cpf() {
         return cnpj_cpf;
     }
-
-    public void setCNPJ(String cnpj_cpf) {
+    public void setCnpj_cpf(String cnpj_cpf) {
         this.cnpj_cpf = cnpj_cpf;
     }
 
@@ -119,7 +118,8 @@ public class RestauranteRequest {
     }
 
 
-
+    @NotBlank(message = "A foto é obrigatoria.")
+    @NotNull(message = "A foto é obrigatoria.")
     public String getFoto_Restaurante() {
         return foto_Restaurante;
     }
@@ -140,7 +140,8 @@ public class RestauranteRequest {
 
     @Override
     public String toString(){
-        return "Restaurante{" + "Nome do Restaurante" + nome_restaurante + "Email " + email + "CNPJ_CPF" + cnpj_cpf + "Teleone" + telefone_Restaurante + "senha" + senha + "Confirmar Senha " + confirmarSenha + "Nome do proprietario " + nome_proprietario + "Especializade " + especialidade + "Foto " + foto_Restaurante + "Descricao " + descricao + '}';
+        return "Restaurante{" + ", Nome proprietario='" + nome_proprietario + '\'' + ", Especialidade='" + especialidade + '\'' + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + '\'' + ", CNPJ_CPF='" + cnpj_cpf + '\'' + ", Telefone='" + telefone_Restaurante +
+                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + '}';
     }
 
 }

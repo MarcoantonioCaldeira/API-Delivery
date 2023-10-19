@@ -13,8 +13,6 @@ import java.util.Objects;
 @Table(name = "ENTREGADORES")
 public class Entregador implements Serializable {
 
-
-
 	private static final long serialVersionUID = 3307278768458796790L;
 
 	@Id
@@ -30,31 +28,27 @@ public class Entregador implements Serializable {
 		this.id = id;
 	}
 
-
 	private String nome;
 	private String sobrenome;
 	private String email;
 	private String cpf;
 	private String telefone;
 	private String cnh;
-	private Long tipoEntrega;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "endereco_id", referencedColumnName = "ID_ENDERECO_ENTREGADOR")
 	private EnderecoEntregador endereco;
-
 	private String senha;
 	private String confirmarSenha;
 
 
-	public Entregador(String nome, String sobrenome, String email, String cpf, String telefone, String cnh, Long tipoEntrega, EnderecoEntregador endereco, String senha, String confirmarSenha) {
+	public Entregador(String nome, String sobrenome, String email, String cpf, String telefone, String cnh, EnderecoEntregador endereco, String senha, String confirmarSenha) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.email = email;
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.cnh = cnh;
-		this.tipoEntrega = tipoEntrega;
 		this.endereco = endereco;
 		this.senha = senha;
 		this.confirmarSenha = confirmarSenha;
@@ -114,15 +108,6 @@ public class Entregador implements Serializable {
 		this.cnh = cnh;
 	}
 
-	@Column(name = "TIPO_ENTREGA", length=100, nullable=false)
-	public Long getTipoEntrega() {
-		return tipoEntrega;
-	}
-	public void setTipoEntrega(Long tipoEntrega) {
-		this.tipoEntrega = tipoEntrega;
-	}
-
-
 	public EnderecoEntregador getEndereco(){
 		return endereco;
 	}
@@ -168,7 +153,7 @@ public class Entregador implements Serializable {
 
 	@Override
 	public String toString(){
-		return "Entregador{" + ", nome='" + nome + '\'' + ", sobrenome='" + sobrenome + '\'' + "email: " + email + ", cpf='" + cpf + '\'' + ", telefone='" + telefone + '\'' + ", cnh='" + cnh + '\'' + ", Tipo de Entrega=" + tipoEntrega + ", endereco=" + endereco +
+		return "Entregador{" + ", nome='" + nome + '\'' + ", sobrenome='" + sobrenome + '\'' + "email: " + email + ", cpf='" + cpf + '\'' + ", telefone='" + telefone + '\'' + ", cnh='" + cnh + '\'' +  ", endereco=" + endereco +
 		", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + '}';
 	}
 
