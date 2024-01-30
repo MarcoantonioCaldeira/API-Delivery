@@ -1,7 +1,6 @@
 package com.apidelivery.web.controllers;
 
 import com.apidelivery.models.data.AuthRequest;
-import com.apidelivery.models.data.ClienteRequest;
 import com.apidelivery.models.service.impl.AuthClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
