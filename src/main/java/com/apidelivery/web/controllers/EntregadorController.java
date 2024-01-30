@@ -1,9 +1,5 @@
 package com.apidelivery.web.controllers;
 
-import com.apidelivery.models.data.EntregadorResponse;
-import com.apidelivery.models.model.Entregador;
-import com.apidelivery.models.service.EntregadorService;
-import com.apidelivery.models.data.EntregadorRequest;
 import com.apidelivery.web.swagger.EntregadorControllerApi;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

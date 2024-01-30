@@ -23,10 +23,10 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
     Optional<Cliente> findByEmail(@Param("email") String email);
 
     // Método para buscar todos os clientes com paginação
-    @Query(value = "SELECT c FROM Cliente c", countQuery = "SELECT COUNT(c) FROM Cliente c")
-    Page<Cliente> findAllPagination(Pageable page);
-
-    // Método para buscar todos os clientes com uma chave de pesquisa com paginação
-    @Query(value = "SELECT u FROM Cliente u WHERE u.id LIKE(CONCAT('%',:key,'%')) OR u.nome LIKE(CONCAT('%',:key,'%')) OR u.email LIKE(CONCAT('%',:key,'%')) ", countQuery = "SELECT COUNT(u) FROM Cliente u")
-    public Page<Cliente> findAllPaginationWithKey(@Param("key") String key, Pageable page);
+//    @Query(value = "SELECT c FROM Cliente c", countQuery = "SELECT COUNT(c) FROM Cliente c")
+//    Page<Cliente> findAllPagination(Pageable page);
+//
+//    // Método para buscar todos os clientes com uma chave de pesquisa com paginação
+//    @Query(value = "SELECT u FROM Cliente u WHERE u.id LIKE(CONCAT('%',:key,'%')) OR u.nome LIKE(CONCAT('%',:key,'%')) OR u.email LIKE(CONCAT('%',:key,'%')) ", countQuery = "SELECT COUNT(u) FROM Cliente u")
+//    public Page<Cliente> findAllPaginationWithKey(@Param("key") String key, Pageable page);
 }

@@ -37,6 +37,7 @@ public class FormaPagamento implements Serializable {
     public void setTipoPagamento(Integer tipoPagamento) {
 
         if(tipoPagamento != 1 && tipoPagamento != 2){
+
             throw new IllegalArgumentException("Valor de tipoPagamento inválido. Use 1 para Débito e 2 para Crédito.");
         }
         this.tipoPagamento = tipoPagamento;

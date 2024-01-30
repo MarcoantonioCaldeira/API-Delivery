@@ -86,40 +86,4 @@ public class ClienteServiceImpl implements ClienteService {
         return entityConversor.parseObject(cliente, ClienteResponse.class);
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<ClienteResponse> list() {
-        return entityConversor.parseListObjects(clienteRepository.findAll(), ClienteResponse.class);
-    }
-
-   // @Override
-    @Transactional(readOnly = true)
-    public List<ClienteResponse> list(String key) {
-        return entityConversor.parseListObjects(clienteRepository.findByNome(key), ClienteResponse.class);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Page<ClienteResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props) {
-
-        Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
-
-        Page<Cliente> userList = clienteRepository.findAllPagination(page);
-        List<ClienteResponse> userListResponse = entityConversor.parseListObjects(userList.getContent(), ClienteResponse.class);
-        Page<ClienteResponse> pageUserResponse = new PageImpl<>(userListResponse, userList.getPageable(), userList.getTotalElements());
-
-        return pageUserResponse;
-    }
-
-    @Override
-    public Page<ClienteResponse> listPagedByKey(String key, Integer actualPage, Integer pageSize, String order, String props) {
-        Pageable page = PageRequestConfig.generatePage(actualPage, pageSize, order, props);
-
-        Page<Cliente> userList = clienteRepository.findAllPaginationWithKey(key, page);
-        List<ClienteResponse> userListResponse = entityConversor.parseListObjects(userList.getContent(), ClienteResponse.class);
-        Page<ClienteResponse> pageUserResponse = new PageImpl<>(userListResponse, userList.getPageable(), userList.getTotalElements());
-
-        return pageUserResponse;
-    }
-
 }

@@ -13,8 +13,6 @@ import java.util.Objects;
 @Table(name="TB_CLIENTE")
 public class Cliente implements Serializable{
 
-
-
 	private static final long serialVersionUID = 6679001107878287172L;
 
 	@Id

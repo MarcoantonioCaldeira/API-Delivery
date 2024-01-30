@@ -1,10 +1,7 @@
 package com.apidelivery.models.service.impl;
 
-import com.apidelivery.models.data.EntregadorRequest;
-import com.apidelivery.models.data.EntregadorResponse;
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
-import com.apidelivery.models.model.Entregador;
 import com.apidelivery.models.model.Restaurante;
 import com.apidelivery.models.repository.RestauranteRepository;
 import com.apidelivery.models.service.RestauranteService;
@@ -93,8 +90,9 @@ public class RestauranteServiceImpl implements RestauranteService {
 
     @Override
     public List<RestauranteResponse> list(String key) {
-        return entityConversor.parseListObjects(restauranteRepository.findByNome(key), RestauranteResponse.class);
+        return null;
     }
+
 
     @Override
     public Page<RestauranteResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props) {

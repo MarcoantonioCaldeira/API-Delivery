@@ -1,9 +1,6 @@
 package com.apidelivery.web.swagger;
 
 import com.apidelivery.models.data.ClienteResponse;
-import com.apidelivery.models.data.EnderecoEntregadorResponse;
-import com.apidelivery.models.data.EntregadorRequest;
-import com.apidelivery.models.data.EntregadorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
