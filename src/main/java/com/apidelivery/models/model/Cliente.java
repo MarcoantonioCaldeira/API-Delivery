@@ -20,7 +20,6 @@ public class Cliente implements Serializable{
 	@Column(name = "ID_CLIENTE")
 	private Long id;
 
-
 	public Long getId() {
 		return id;
 	}
@@ -33,7 +32,10 @@ public class Cliente implements Serializable{
 	@JoinColumn(name = "pagamento_id", referencedColumnName = "ID_PAGAMENTO")
 	private FormaPagamento formaPagamento;
 
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cliente_end_id", referencedColumnName = "ID_END_CLIENTE")
+	private EnderecoCliente endereco;
+
 	private String email;
 
 	private String telefone;
@@ -46,7 +48,9 @@ public class Cliente implements Serializable{
 
 
 
-	public Cliente(String email, String telefone, String nome, String Senha, String confirmarSenha) {
+	public Cliente(String email, String telefone, String nome, String Senha, String confirmarSenha, EnderecoCliente endereco, FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+		this.endereco = endereco;
 		this.email = email;
 		this.telefone = telefone;
 		this.nome = nome;
@@ -57,7 +61,6 @@ public class Cliente implements Serializable{
 	public Cliente() {
 
 	}
-
 
 	public FormaPagamento getFormaPagamento() {
 		return formaPagamento;
@@ -92,7 +95,14 @@ public class Cliente implements Serializable{
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
+
+
+	public EnderecoCliente getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(EnderecoCliente endereco) {
+		this.endereco = endereco;
+	}
 	
 	@Column(name="SENHA", length=100, nullable=false)
 	public String getSenha() {
@@ -131,9 +141,9 @@ public class Cliente implements Serializable{
 		Cliente other = (Cliente) obj;
 		return Objects.equals(id, other.id);
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Cliente [nome=" + this.getNome() + ", Email=" + email + ", telefone=" + telefone + "senha=" + Senha + "Confirmação de Senha=" + confirmarSenha +"]";
+		return "Cliente [nome=" + this.getNome() + ", Email=" + email + ", telefone=" + telefone + "senha=" + Senha + "Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco +"Forma de Pagamento " + formaPagamento + "]";
 	}
 }

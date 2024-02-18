@@ -1,7 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="apidelivery" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/zulu20.32.11-ca-jdk20.0.2-win_x64" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <module name="demo" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="com.apidelivery.ApiDeliveryApplication" />
     <method v="2">

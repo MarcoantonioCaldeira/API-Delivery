@@ -10,7 +10,10 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Page;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -42,6 +45,10 @@ public interface ClienteRestControllerApi {
             @RequestBody(description = "Representação de um usuário",
                     required = true)
             ClienteRequest userRequest);
+
+    @GetMapping(value="/get/{id}",
+            produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    ResponseEntity<?> searchClienteById(@PathVariable("id") Long id);
 
     @Operation(
             summary = "Atualiza um usuário por meio do ID",
