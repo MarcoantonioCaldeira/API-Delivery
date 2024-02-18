@@ -3,6 +3,7 @@ package com.apidelivery.models.data;
 import com.apidelivery.models.model.EnderecoRestaurante;
 
 
+
 public class RestauranteResponse {
 
     private Long id;
@@ -28,6 +29,32 @@ public class RestauranteResponse {
     }
 
 
+    public String getNome_proprietario() {
+        return nome_proprietario;
+    }
+
+    public void setNome_proprietario(String nome_proprietario) {
+        this.nome_proprietario = nome_proprietario;
+    }
+
+
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+
+    public String getFoto_Restaurante() {
+        return foto_Restaurante;
+    }
+
+    public void setFoto_Restaurante(String foto_Restaurante) {
+        this.foto_Restaurante = foto_Restaurante;
+    }
+
 
     public String getNome_restaurante() {
         return nome_restaurante;
@@ -38,15 +65,12 @@ public class RestauranteResponse {
     }
 
 
-
-    public String getCNPJ() {
+    public String getCnpj_cpf() {
         return cnpj_cpf;
     }
-
-    public void setCNPJ(String cnpj_cpf) {
+    public void setCnpj_cpf(String cnpj_cpf) {
         this.cnpj_cpf = cnpj_cpf;
     }
-
 
 
     public String getTelefone_Restaurante() {
@@ -68,6 +92,15 @@ public class RestauranteResponse {
 
 
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+
     public String getSenha() {
         return senha;
     }
@@ -75,7 +108,6 @@ public class RestauranteResponse {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
 
 
     public String getConfirmarSenha() {
@@ -87,57 +119,18 @@ public class RestauranteResponse {
     }
 
 
-
-    public EnderecoRestaurante getRestaurante() {
+    public EnderecoRestaurante getEndereco() {
         return endereco;
     }
 
-    public void setRestaurante(EnderecoRestaurante endereco) {
+    public void setEndereco(EnderecoRestaurante endereco) {
         this.endereco = endereco;
     }
 
 
-
-    public String getNome_proprietario() {
-        return nome_proprietario;
-    }
-
-    public void setNome_proprietario(String nome_proprietario) {
-        this.nome_proprietario = nome_proprietario;
-    }
-
-
-
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
-
-
-
-    public String getFoto_Restaurante() {
-        return foto_Restaurante;
-    }
-
-    public void setFoto_Restaurante(String foto_Restaurante) {
-        this.foto_Restaurante = foto_Restaurante;
-    }
-
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     @Override
     public String toString(){
-        return "Restaurante{" + ", Nome proprietario='" + nome_proprietario + '\'' + ", Especialidade='" + especialidade + '\'' + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + '\'' + ", CNPJ_CPF='" + cnpj_cpf + '\'' + ", Telefone='" + telefone_Restaurante +
-                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + '}';
+        return "RestauranteRequest [" + ", Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CNPJ_CPF='" + cnpj_cpf  + ", Telefone='" + telefone_Restaurante
+                + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + ']';
     }
 }

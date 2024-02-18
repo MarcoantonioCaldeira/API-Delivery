@@ -1,7 +1,6 @@
 package com.apidelivery.models.data;
 
 import com.apidelivery.models.model.EnderecoCliente;
-import com.apidelivery.models.model.EnderecoRestaurante;
 import com.apidelivery.models.model.FormaPagamento;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

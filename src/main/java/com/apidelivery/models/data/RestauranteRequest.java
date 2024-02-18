@@ -28,6 +28,39 @@ public class RestauranteRequest {
         this.id = id;
     }
 
+    @NotBlank(message = "O nome do proprietario é obrigatorio.")
+    @NotNull(message = "O nome do proprietario é obrigatorio.")
+    public String getNome_proprietario() {
+        return nome_proprietario;
+    }
+
+    public void setNome_proprietario(String nome_proprietario) {
+        this.nome_proprietario = nome_proprietario;
+    }
+
+    @NotBlank(message = "A especialidade é obrigatoria.")
+    @NotNull(message = "A especialidade é obrigatoria.")
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
+
+
+    @NotBlank(message = "A foto é obrigatoria.")
+    @NotNull(message = "A foto é obrigatoria.")
+    public String getFoto_Restaurante() {
+        return foto_Restaurante;
+    }
+
+    public void setFoto_Restaurante(String foto_Restaurante) {
+        this.foto_Restaurante = foto_Restaurante;
+    }
+
+
+
     @NotBlank(message = "O nome do Restaurante é obrigatorio.")
     @NotNull(message = "O nome do Restaurante é obrigatorio.")
     public String getNome_restaurante() {
@@ -68,6 +101,18 @@ public class RestauranteRequest {
         this.email = email;
     }
 
+
+
+    @NotBlank(message = "Descricao obrigatoria.")
+    @NotNull(message = "Descricao obrigatoria.")
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     @NotBlank(message = "A senha é obrigatoria.")
     @NotNull(message = "A senha é obrigatoria.")
     public String getSenha() {
@@ -89,59 +134,19 @@ public class RestauranteRequest {
     }
 
 
-    public EnderecoRestaurante getRestaurante() {
+    public EnderecoRestaurante getEndereco() {
         return endereco;
     }
 
-    public void setRestaurante(EnderecoRestaurante endereco) {
+    public void setEndereco(EnderecoRestaurante endereco) {
         this.endereco = endereco;
     }
 
-    @NotBlank(message = "O nome do proprietario é obrigatorio.")
-    @NotNull(message = "O nome do proprietario é obrigatorio.")
-    public String getNome_proprietario() {
-        return nome_proprietario;
-    }
-
-    public void setNome_proprietario(String nome_proprietario) {
-        this.nome_proprietario = nome_proprietario;
-    }
-
-    @NotBlank(message = "A especialidade é obrigatoria.")
-    @NotNull(message = "A especialidade é obrigatoria.")
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
-
-
-    @NotBlank(message = "A foto é obrigatoria.")
-    @NotNull(message = "A foto é obrigatoria.")
-    public String getFoto_Restaurante() {
-        return foto_Restaurante;
-    }
-
-    public void setFoto_Restaurante(String foto_Restaurante) {
-        this.foto_Restaurante = foto_Restaurante;
-    }
-
-    @NotBlank(message = "Descricao obrigatoria.")
-    @NotNull(message = "Descricao obrigatoria.")
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     @Override
     public String toString(){
-        return "Restaurante{" + ", Nome proprietario='" + nome_proprietario + '\'' + ", Especialidade='" + especialidade + '\'' + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + '\'' + ", CNPJ_CPF='" + cnpj_cpf + '\'' + ", Telefone='" + telefone_Restaurante +
-                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + '}';
+        return "Restaurante[" + ", Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CNPJ_CPF='" + cnpj_cpf  + ", Telefone='" + telefone_Restaurante
+                + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + ']';
     }
 
 }

@@ -36,6 +36,14 @@ public class EnderecoRestaurante implements Serializable {
     private String numero_end;
     private String complemento;
 
+    @Column(name = "CEP", length=100)
+    public String getCep() {
+        return cep;
+    }
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
     @Column(name = "UF", length=100)
     public String getUF() {
         return uf;
@@ -66,6 +74,15 @@ public class EnderecoRestaurante implements Serializable {
         this.bairro = bairro;
     }
 
+    @Column(name = "RUA", length=100)
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
     @Column(name = "NUMERO_ENDERECO", length=100)
     public String getNumero_end() {
         return numero_end;
@@ -75,13 +92,6 @@ public class EnderecoRestaurante implements Serializable {
         this.numero_end = numero_end;
     }
 
-    @Column(name = "CEP", length=100)
-    public String getCep() {
-        return cep;
-    }
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
 
     @Column(name = "COMPLEMENTO", length=100)
     public String getComplemento() {
@@ -92,14 +102,7 @@ public class EnderecoRestaurante implements Serializable {
         this.complemento = complemento;
     }
 
-    @Column(name = "RUA", length=100)
-    public String getRua() {
-        return rua;
-    }
 
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
 
     @Override
     public boolean equals(Object obj) {

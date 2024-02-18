@@ -8,7 +8,6 @@ public class ClienteResponse {
     private FormaPagamento formaPagamento;
     private EnderecoCliente endereco;
     private String email;
-
     private String telefone;
     private String nome;
     private String senha;
@@ -90,7 +89,7 @@ public class ClienteResponse {
     public String toString() {
         return "UserRequest [id=" + id + ", Forma de pagamento " + formaPagamento + " + Endereço=" + endereco + ", Email="+ email +", telefone=" + telefone + ", nome=" + nome
                 + ", Senha=" + senha + "Confirmar Senha " + confirmarSenha + "]";
-    }
+        }
 
 
 }

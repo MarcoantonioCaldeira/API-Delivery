@@ -1,5 +1,7 @@
 package com.apidelivery.models.data;
 
+import jakarta.persistence.Column;
+
 public class EnderecoRestauranteResponse {
 
     private String cep;
@@ -10,6 +12,14 @@ public class EnderecoRestauranteResponse {
     private String numero_end;
     private String complemento;
 
+    public String getCep() {
+        return cep;
+    }
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+
     public String getUF() {
         return uf;
     }
@@ -18,13 +28,17 @@ public class EnderecoRestauranteResponse {
         this.uf = uf;
     }
 
+
     public String getCidade() {
         return cidade;
     }
 
+
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
+
 
     public String getBairro() {
         return bairro;
@@ -34,21 +48,6 @@ public class EnderecoRestauranteResponse {
         this.bairro = bairro;
     }
 
-    public String getNumero_end() {
-        return numero_end;
-    }
-
-    public void setNumero_end(String numero_end) {
-        this.numero_end = numero_end;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
 
     public String getRua() {
         return rua;
@@ -57,6 +56,17 @@ public class EnderecoRestauranteResponse {
     public void setRua(String rua) {
         this.rua = rua;
     }
+
+
+    public String getNumero_end() {
+        return numero_end;
+    }
+
+    public void setNumero_end(String numero_end) {
+        this.numero_end = numero_end;
+    }
+
+
 
     public String getComplemento() {
         return complemento;
@@ -68,7 +78,7 @@ public class EnderecoRestauranteResponse {
 
     @Override
     public String toString(){
-        return "EntregadorRequest [Estado=" + uf + ", Cidade=" + cidade + ", Bairro="+ bairro + ", Numero ="+ numero_end + "Rua" + rua + "CEP" + cep + "Complemento " + complemento + "]";
+        return "EntregadorRequest [CEP= " + cep + ", Estado= " + uf + ", Cidade= "+ cidade + ", Bairro ="+ bairro + "Rua " + rua + "Numero de Endereço " + numero_end + "Complemento " + complemento + "]";
     }
 
 }
