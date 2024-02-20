@@ -28,14 +28,6 @@ public class Cliente implements Serializable{
 		this.id = id;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "pagamento_id", referencedColumnName = "ID_PAGAMENTO")
-	private FormaPagamento formaPagamento;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "cliente_end_id", referencedColumnName = "ID_END_CLIENTE")
-	private EnderecoCliente endereco;
-
 	private String email;
 
 	private String telefone;
@@ -46,28 +38,28 @@ public class Cliente implements Serializable{
 
 	private String confirmarSenha;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pagamento_id", referencedColumnName = "ID_PAGAMENTO")
+	private FormaPagamento formaPagamento;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cliente_end_id", referencedColumnName = "ID_END_CLIENTE")
+	private EnderecoCliente endereco;
+
 
 
 	public Cliente(String email, String telefone, String nome, String Senha, String confirmarSenha, EnderecoCliente endereco, FormaPagamento formaPagamento) {
-		this.formaPagamento = formaPagamento;
-		this.endereco = endereco;
 		this.email = email;
 		this.telefone = telefone;
 		this.nome = nome;
 		this.Senha = Senha;
 		this.confirmarSenha = confirmarSenha;
+		this.formaPagamento = formaPagamento;
+		this.endereco = endereco;
 	}
 
 	public Cliente() {
 
-	}
-
-	public FormaPagamento getFormaPagamento() {
-		return formaPagamento;
-	}
-
-	public void setFormaPagamento(FormaPagamento formaPagamento) {
-		this.formaPagamento = formaPagamento;
 	}
 
 
@@ -96,13 +88,6 @@ public class Cliente implements Serializable{
 		this.telefone = telefone;
 	}
 
-
-	public EnderecoCliente getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(EnderecoCliente endereco) {
-		this.endereco = endereco;
-	}
 	
 	@Column(name="SENHA", length=100, nullable=false)
 	public String getSenha() {
@@ -124,6 +109,22 @@ public class Cliente implements Serializable{
 		this.confirmarSenha = confirmarSenha;
 	}
 
+
+	public EnderecoCliente getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(EnderecoCliente endereco) {
+		this.endereco = endereco;
+	}
+
+
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

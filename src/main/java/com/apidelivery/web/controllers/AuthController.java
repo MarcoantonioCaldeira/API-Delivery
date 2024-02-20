@@ -45,6 +45,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestBody AuthRequest authRequest) {
+
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getSenha())
@@ -63,4 +64,5 @@ public class AuthController {
             throw new RuntimeException("Incorrect username or password", e);
         }
     }
+
 }

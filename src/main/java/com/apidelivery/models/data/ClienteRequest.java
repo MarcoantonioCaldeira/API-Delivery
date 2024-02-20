@@ -9,13 +9,13 @@ import jakarta.validation.constraints.NotNull;
 public class ClienteRequest {
 
     private Long id;
-    private FormaPagamento formaPagamento;
-    private EnderecoCliente endereco;
     private String email;
     private String telefone;
     private String nome;
     private String senha;
     private String confirmarSenha;
+    private FormaPagamento formaPagamento;
+    private EnderecoCliente endereco;
 
 
 
@@ -26,6 +26,62 @@ public class ClienteRequest {
     public void setId(Long id) {
         this.id = id;
     }
+
+
+    @Email(message = "e-mail inválido")
+    @NotBlank(message = "e-mail obrigatório.")
+    @NotNull(message = "e-mail obrigatório.")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    @NotBlank(message = "telefone obrigatorio.")
+    @NotNull(message = "telefone é obrigatorio.")
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+
+    @NotBlank(message = "nome é obrigatorio.")
+    @NotNull(message = "nome é obrigatorio.")
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+
+    @NotBlank(message = "senha é obrigatória.")
+    @NotNull(message = "senha é obrigatória.")
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String Senha) {
+        this.senha = Senha;
+    }
+    @NotBlank(message = "confirmação de senha é obrigatória.")
+    @NotNull(message = "confirmação de senha é obrigatória.")
+    public String getConfirmarSenha() {
+        return confirmarSenha;
+    }
+
+    public void setConfirmarSenha(String confirmar_senha) {
+        this.confirmarSenha = confirmar_senha;
+    }
+
 
     public FormaPagamento getFormaPagamento() {
         return formaPagamento;
@@ -43,62 +99,6 @@ public class ClienteRequest {
     public void setEndereco(EnderecoCliente endereco) {
         this.endereco = endereco;
     }
-
-
-    @Email(message = "email inválido")
-    @NotBlank(message = "O email é obrigatório.")
-    @NotNull(message = "O email é obrigatório.")
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    @NotBlank(message = "telefone é obrigatorio.")
-    @NotNull(message = "telefone é obrigatorio.")
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-
-    @NotBlank(message = "O nome do Cliente é obrigatorio.")
-    @NotNull(message = "O nome do Cliente é obrigatorio.")
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
-
-    @NotBlank(message = "A senha é obrigatória.")
-    @NotNull(message = "A senha é obrigatória.")
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String Senha) {
-        this.senha = Senha;
-    }
-    @NotBlank(message = "A confirmação de senha é obrigatória.")
-    @NotNull(message = "A confirmação de senha é obrigatória.")
-    public String getConfirmarSenha() {
-        return confirmarSenha;
-    }
-
-    public void setConfirmarSenha(String confirmar_senha) {
-        this.confirmarSenha = confirmar_senha;
-    }
-
 
 
     @Override
