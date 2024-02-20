@@ -1,7 +1,4 @@
 package com.apidelivery.web.controllers;
-import com.apidelivery.config.JwtConfig;
-import com.apidelivery.models.data.AuthRequest;
-import com.apidelivery.models.service.impl.MyUserDetailService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
