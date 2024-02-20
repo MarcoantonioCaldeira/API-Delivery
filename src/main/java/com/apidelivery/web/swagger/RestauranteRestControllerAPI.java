@@ -1,6 +1,4 @@
 package com.apidelivery.web.swagger;
-
-
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
 import jakarta.validation.Valid;
@@ -8,7 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 public interface RestauranteRestControllerAPI {
@@ -51,4 +48,5 @@ public interface RestauranteRestControllerAPI {
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     ResponseEntity<?> deleteRestaurant(@PathVariable("id") Long id);
+
 }

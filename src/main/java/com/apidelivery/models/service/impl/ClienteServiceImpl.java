@@ -1,15 +1,8 @@
 package com.apidelivery.models.service.impl;
-
-import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.apidelivery.models.data.ClienteRequest;
 import com.apidelivery.models.data.ClienteResponse;
 import com.apidelivery.models.model.Cliente;
@@ -17,7 +10,6 @@ import com.apidelivery.models.repository.ClienteRepository;
 import com.apidelivery.models.service.ClienteService;
 import com.apidelivery.models.service.exception.EntityNotFoundException;
 import com.apidelivery.models.service.mapper.EntityConversor;
-import com.apidelivery.models.service.pagination.PageRequestConfig;
 import com.apidelivery.models.service.exception.PasswordConfirmationException;
 import com.apidelivery.models.service.exception.EmailAlreadyExistsException;
 
@@ -31,7 +23,6 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
     private EntityConversor entityConversor;
-
 
 
     @Override
