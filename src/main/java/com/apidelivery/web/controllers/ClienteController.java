@@ -7,7 +7,6 @@ import com.apidelivery.models.model.Cliente;
 
 import com.apidelivery.models.service.ClienteService;
 import com.apidelivery.web.response.SystemMessage;
-import com.apidelivery.web.swagger.ClienteRestControllerApi;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +17,12 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/rest/cliente")
-public class ClienteController implements ClienteRestControllerApi {
+public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
 
-    @Override
+
     @PostMapping(value="/save",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
@@ -33,7 +32,7 @@ public class ClienteController implements ClienteRestControllerApi {
         return ResponseEntity.ok().body(userMessage);
     }
 
-    @Override
+
     @GetMapping(value="/get/{id}",
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> searchClienteById(@PathVariable("id") Long id) {
@@ -43,7 +42,7 @@ public class ClienteController implements ClienteRestControllerApi {
         return ResponseEntity.ok().body(userMessage);
     }
 
-    @Override
+
     @PutMapping(value="/update/{id}",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
@@ -53,7 +52,7 @@ public class ClienteController implements ClienteRestControllerApi {
         return ResponseEntity.ok().body(userMessage);
     }
 
-    @Override
+
     @DeleteMapping(value="/delete/{id}",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })

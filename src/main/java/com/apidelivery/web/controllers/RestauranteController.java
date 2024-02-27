@@ -5,7 +5,6 @@ import com.apidelivery.models.data.RestauranteResponse;
 import com.apidelivery.models.model.Restaurante;
 import com.apidelivery.models.service.RestauranteService;
 import com.apidelivery.web.response.SystemMessage;
-import com.apidelivery.web.swagger.RestauranteRestControllerAPI;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,19 +17,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/rest/restaurante")
-public class RestauranteController implements RestauranteRestControllerAPI {
+public class RestauranteController {
 
     @Autowired
     private RestauranteService restauranteService;
 
-    @Override
+
     @GetMapping(value = "/listar",
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public List<RestauranteResponse> list(){
         return restauranteService.list();
     }
 
-    @Override
+
     @GetMapping(value="/pageByKey",
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Page<RestauranteResponse> listPagedByKey(
@@ -42,7 +41,6 @@ public class RestauranteController implements RestauranteRestControllerAPI {
         return restauranteService.listPagedByKey(key, actualPage, pageSize, order, props);
     }
 
-    @Override
     @GetMapping(value="/page",
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Page<RestauranteResponse> listPaged(
@@ -53,7 +51,7 @@ public class RestauranteController implements RestauranteRestControllerAPI {
         return restauranteService.listPaged(actualPage, pageSize, order, props);
     }
 
-    @Override
+
     @GetMapping(value="/get/{id}",
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> searchRestaurantById(@PathVariable("id") Long id) {
@@ -63,7 +61,7 @@ public class RestauranteController implements RestauranteRestControllerAPI {
         return ResponseEntity.ok().body(userMessage);
     }
 
-    @Override
+
     @PostMapping(value="/save",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
@@ -74,7 +72,7 @@ public class RestauranteController implements RestauranteRestControllerAPI {
         return ResponseEntity.ok().body(userMessage);
     }
 
-    @Override
+
     @PutMapping(value="/update/{id}",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
@@ -85,7 +83,7 @@ public class RestauranteController implements RestauranteRestControllerAPI {
         return ResponseEntity.ok().body(userMessage);
     }
 
-    @Override
+
     @DeleteMapping(value="/delete/{id}",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
