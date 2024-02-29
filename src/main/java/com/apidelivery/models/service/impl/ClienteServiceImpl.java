@@ -1,5 +1,10 @@
 package com.apidelivery.models.service.impl;
 import java.util.Optional;
+
+import com.apidelivery.models.model.EnderecoCliente;
+import com.apidelivery.models.model.FormaPagamento;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -64,6 +69,43 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteResponse;
 
     }
+
+
+    private EnderecoCliente atualizarEndereco(EnderecoCliente endereco, String attributeValue) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            EnderecoCliente novoEndereco = objectMapper.readValue(attributeValue, EnderecoCliente.class);
+
+            if (novoEndereco.getCep() != null) {
+                endereco.setCep(novoEndereco.getCep());
+            }
+            if (novoEndereco.getUF() != null) {
+                endereco.setUF(novoEndereco.getUF());
+            }
+            return endereco;
+        } catch (JsonProcessingException e) {
+            throw new IllegalArgumentException("Erro ao processar os dados do endereço: " + e.getMessage());
+        }
+    }
+
+    private FormaPagamento atualizarFormaPagamento(FormaPagamento pagamento, String attributeValue) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            FormaPagamento formaPagamento = objectMapper.readValue(attributeValue, FormaPagamento.class);
+
+            if (formaPagamento.getCpf_cnpj() != null) {
+                pagamento.setCpf_cnpj(formaPagamento.getCpf_cnpj());
+            }
+            if (formaPagamento.getNum_cartao() != null) {
+                pagamento.setNum_cartao(formaPagamento.getNum_cartao());
+            }
+            return pagamento;
+        } catch (JsonProcessingException e) {
+            throw new IllegalArgumentException("Erro ao processar os dados do endereço: " + e.getMessage());
+        }
+    }
+
+
 
     @Override
     public void delete(Long id) {

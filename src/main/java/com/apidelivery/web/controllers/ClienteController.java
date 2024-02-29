@@ -53,6 +53,16 @@ public class ClienteController {
     }
 
 
+    @PatchMapping(value="/updates/{id}",
+            consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
+            produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public ResponseEntity<?> updateAttribute(@PathVariable("id") Long id, @RequestBody ClienteRequest clienteRequest) {
+        ClienteResponse updateAttribute = clienteService.update(id, clienteRequest);
+        SystemMessage<ClienteResponse> userMessage = new SystemMessage<>(HttpStatus.OK.value(), "Usuário alterado com sucesso.", updateAttribute);
+        return ResponseEntity.ok().body(userMessage);
+    }
+
+
     @DeleteMapping(value="/delete/{id}",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })

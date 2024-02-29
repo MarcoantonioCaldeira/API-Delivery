@@ -1,6 +1,7 @@
 package com.apidelivery.web.controllers;
 
 import com.apidelivery.models.data.AuthRequest;
+import com.apidelivery.models.model.Cliente;
 import com.apidelivery.models.service.impl.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,16 +20,22 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthRequest authRequest) {
+    public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
         String email = authRequest.getEmail();
         String senha = authRequest.getSenha();
 
+        // Verifica se o email e a senha são fornecidos
+        if (email != null && senha != null) {
+            Cliente cliente = clienteService.Autenticacao(email, senha);
 
-        //Verificação das credenciais do Cliente
-        if(clienteService.Autenticacao(email, senha)){
-            return new ResponseEntity<>("Autenticação bem-sucedida", HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>("Credenciais inválidas", HttpStatus.UNAUTHORIZED);
+            if (cliente != null) {
+                return new ResponseEntity<>(cliente, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Credenciais inválidas", HttpStatus.UNAUTHORIZED);
+            }
+        } else {
+            return new ResponseEntity<>("Email ou senha não fornecidos", HttpStatus.BAD_REQUEST);
         }
     }
+
 }
