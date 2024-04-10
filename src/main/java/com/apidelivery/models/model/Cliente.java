@@ -48,6 +48,7 @@ public class Cliente implements Serializable{
 
 
 
+
 	public Cliente(String email, String telefone, String nome, String Senha, String confirmarSenha, EnderecoCliente endereco, FormaPagamento formaPagamento) {
 		this.email = email;
 		this.telefone = telefone;

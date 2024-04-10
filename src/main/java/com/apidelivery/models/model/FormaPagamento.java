@@ -22,7 +22,7 @@ public class FormaPagamento implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    private Integer tipoPagamento;
+    private String tipoPagamento;
     private String num_cartao;
     private String nomeImpresso;
     private String validadeCartao;
@@ -30,16 +30,12 @@ public class FormaPagamento implements Serializable {
     private String nome_Apelido;
     private String cpf_cnpj;
 
-    public Integer getTipoPagamento() {
+    public String getTipoPagamento() {
         return tipoPagamento;
     }
 
-    public void setTipoPagamento(Integer tipoPagamento) {
+    public void setTipoPagamento(String tipoPagamento) {
 
-        if(tipoPagamento != 1 && tipoPagamento != 2){
-
-            throw new IllegalArgumentException("Valor de tipoPagamento inválido. Use 1 para Débito e 2 para Crédito.");
-        }
         this.tipoPagamento = tipoPagamento;
 
     }

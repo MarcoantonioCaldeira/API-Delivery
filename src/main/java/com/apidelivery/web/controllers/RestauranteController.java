@@ -85,7 +85,6 @@ public class RestauranteController {
 
 
     @DeleteMapping(value="/delete/{id}",
-            consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public ResponseEntity<?> deleteRestaurant(@PathVariable("id") Long id) {
         restauranteService.delete(id);

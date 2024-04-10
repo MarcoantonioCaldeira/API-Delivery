@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-
-import com.apidelivery.models.model.EnderecoRestaurante;
 
 @Entity
 @Table(name="TB_RESTAURANTE")
@@ -18,15 +18,6 @@ public class Restaurante implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "ID_RESTAURANTE")
     private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id =  id;
-    }
-
     private String nome_proprietario;
     private String especialidade;
     private String foto_Restaurante;
@@ -42,23 +33,11 @@ public class Restaurante implements Serializable{
     @JoinColumn(name = "restaurante_end_id", referencedColumnName = "ID_END_RESTAURANTE")
     private EnderecoRestaurante endereco;
 
-
-    public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cnpj_cpf, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha, EnderecoRestaurante endereco){
-      this.nome_proprietario = nome_proprietario;
-      this.especialidade = especialidade;
-      this.foto_Restaurante = foto_Restaurante;
-      this.nome_restaurante = nome_restaurante;
-      this.cnpj_cpf = cnpj_cpf;
-      this.telefone_Restaurante = telefone_Restaurante;
-      this.email = email;
-      this.descricao = descricao;
-      this.senha = senha;
-      this.confirmarSenha = confirmarSenha;
-      this.endereco = endereco;
-    }
+    @OneToMany(mappedBy = "restaurante")
+    private List<ItemMenuRestaurante> itemMenuRestaurante;
 
     public Restaurante(){
-
+        itemMenuRestaurante = new ArrayList<>();
     }
 
     @Column(name="NOME_RESTAURANTE", length=100, nullable=false)
@@ -157,6 +136,14 @@ public class Restaurante implements Serializable{
         this.descricao = descricao;
     }
 
+    public List<ItemMenuRestaurante> getItemMenuRestaurante() {
+        return itemMenuRestaurante;
+    }
+
+    public void setItemMenuRestaurante(List<ItemMenuRestaurante> itemMenuRestaurante) {
+        this.itemMenuRestaurante = itemMenuRestaurante;
+    }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -179,6 +166,6 @@ public class Restaurante implements Serializable{
     @Override
     public String toString(){
         return "Restaurante{" + ", Nome proprietario='" + nome_proprietario + '\'' + ", Especialidade='" + especialidade + '\'' + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + '\'' + ", CNPJ_CPF='" + cnpj_cpf + '\'' + ", Telefone='" + telefone_Restaurante +
-                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + '}';
+                '\'' + ", Email=" + email + '\'' + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + "Itens do Menu " + itemMenuRestaurante + '}';
     }
 }

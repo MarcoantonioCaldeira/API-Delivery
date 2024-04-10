@@ -2,7 +2,7 @@ package com.apidelivery.models.data;
 
 public class FormaPagamentoResponse {
 
-    private Integer tipoPagamento;
+    private String tipoPagamento;
     private String num_cartao;
     private String nomeImpresso;
     private String validadeCartao;
@@ -11,11 +11,11 @@ public class FormaPagamentoResponse {
     private String cpf_cnpj;
 
 
-    public Integer getTipoPagamento() {
+    public String getTipoPagamento() {
         return tipoPagamento;
     }
 
-    public void setTipoPagamento(Integer tipoPagamento) {
+    public void setTipoPagamento(String tipoPagamento) {
         this.tipoPagamento = tipoPagamento;
     }
 

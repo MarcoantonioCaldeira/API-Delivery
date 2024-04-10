@@ -1,8 +1,10 @@
 package com.apidelivery.models.data;
-
 import com.apidelivery.models.model.EnderecoRestaurante;
+import com.apidelivery.models.model.ItemMenuRestaurante;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.util.List;
 
 public class RestauranteRequest {
 
@@ -19,6 +21,8 @@ public class RestauranteRequest {
     private String confirmarSenha;
     private EnderecoRestaurante endereco;
 
+
+    private List<ItemMenuRestaurante> itemMenuRestaurante;
 
     public Long getId() {
         return id;
@@ -143,10 +147,17 @@ public class RestauranteRequest {
     }
 
 
+    public List<ItemMenuRestaurante> getItemMenuRestaurante() {
+        return itemMenuRestaurante;
+    }
+
+    public void setItemMenuRestaurante(List<ItemMenuRestaurante> itemMenuRestaurante) {
+        this.itemMenuRestaurante = itemMenuRestaurante;
+    }
     @Override
     public String toString(){
-        return "Restaurante[" + ", Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CNPJ_CPF='" + cnpj_cpf  + ", Telefone='" + telefone_Restaurante
-                + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + ']';
+        return "Restaurante[" + " Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CNPJ_CPF='" + cnpj_cpf  + ", Telefone='" + telefone_Restaurante
+                + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + "Itens do Menu" + itemMenuRestaurante + ']';
     }
 
 }

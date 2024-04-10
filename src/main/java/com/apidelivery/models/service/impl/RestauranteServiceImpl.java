@@ -1,7 +1,9 @@
 package com.apidelivery.models.service.impl;
 
+import com.apidelivery.models.data.ItemMenuRequest;
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
+import com.apidelivery.models.model.ItemMenuRestaurante;
 import com.apidelivery.models.model.Restaurante;
 import com.apidelivery.models.repository.RestauranteRepository;
 import com.apidelivery.models.service.RestauranteService;
@@ -17,6 +19,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +44,13 @@ public class RestauranteServiceImpl implements RestauranteService {
         if(!entity.getSenha().equals(entity.getConfirmarSenha())) {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
+
+        List<ItemMenuRestaurante> itensMenu = new ArrayList<>();
+        for (ItemMenuRestaurante itemMenuRequest : entity.getItemMenuRestaurante()) {
+            ItemMenuRestaurante itemMenu = new ItemMenuRestaurante( itemMenuRequest.getNomeItem(), itemMenuRequest.getPreco(), restaurante);
+            itensMenu.add(itemMenu);
+        }
+        restaurante.setItemMenuRestaurante(itensMenu);
 
         restaurante = restauranteRepository.save(restaurante);
         RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
@@ -87,12 +97,6 @@ public class RestauranteServiceImpl implements RestauranteService {
     public List<RestauranteResponse> list() {
         return entityConversor.parseListObjects(restauranteRepository.findAll(), RestauranteResponse.class);
     }
-
-    @Override
-    public List<RestauranteResponse> list(String key) {
-        return null;
-    }
-
 
     @Override
     public Page<RestauranteResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props) {
