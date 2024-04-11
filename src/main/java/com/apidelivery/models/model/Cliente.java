@@ -146,6 +146,6 @@ public class Cliente implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Cliente [nome=" + this.getNome() + ", Email=" + email + ", telefone=" + telefone + "senha=" + Senha + "Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco +"Forma de Pagamento " + formaPagamento + "]";
+		return "Cliente [nome=" + nome + ", Email=" + email + ", telefone=" + telefone + "senha=" + Senha + "Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco +"Forma de Pagamento " + formaPagamento + "]";
 	}
 }

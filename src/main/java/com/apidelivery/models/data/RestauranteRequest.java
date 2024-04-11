@@ -13,16 +13,15 @@ public class RestauranteRequest {
     private String especialidade;
     private String foto_Restaurante;
     private String nome_restaurante;
-    private String cnpj_cpf;
+    private String cpf_cnpj;
     private String telefone_Restaurante;
     private String email;
     private String descricao;
     private String senha;
     private String confirmarSenha;
     private EnderecoRestaurante endereco;
-
-
     private List<ItemMenuRestaurante> itemMenuRestaurante;
+
 
     public Long getId() {
         return id;
@@ -78,10 +77,10 @@ public class RestauranteRequest {
     @NotBlank(message = "O CNPJ ou CPF do Restaurante é obrigatorio.")
     @NotNull(message = "O CNPJ ou CPF do Restaurante é obrigatorio.")
     public String getCnpj_cpf() {
-        return cnpj_cpf;
+        return cpf_cnpj;
     }
-    public void setCnpj_cpf(String cnpj_cpf) {
-        this.cnpj_cpf = cnpj_cpf;
+    public void setCnpj_cpf(String cpf_cnpj) {
+        this.cpf_cnpj = cpf_cnpj;
     }
 
     @NotBlank(message = "O nome é obrigatório.")
@@ -156,7 +155,7 @@ public class RestauranteRequest {
     }
     @Override
     public String toString(){
-        return "Restaurante[" + " Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CNPJ_CPF='" + cnpj_cpf  + ", Telefone='" + telefone_Restaurante
+        return "RestauranteRequest[" + "id" + id + " Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CPF_CNPJ='" + cpf_cnpj  + ", Telefone='" + telefone_Restaurante
                 + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + "Itens do Menu" + itemMenuRestaurante + ']';
     }
 

@@ -1,6 +1,4 @@
 package com.apidelivery.models.repository;
-
-import com.apidelivery.models.model.Cliente;
 import com.apidelivery.models.model.Restaurante;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,10 +22,6 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
 
     @Query(value = "SELECT c FROM Restaurante c", countQuery = "SELECT COUNT(c) FROM Restaurante c")
     Page<Restaurante> findAllPagination(Pageable page);
-
-    @Query("SELECT DISTINCT r FROM Restaurante r LEFT JOIN FETCH r.itemMenuRestaurante")
-    List<Restaurante> findAllWithItems();
-
 
     @Query(value = "SELECT u FROM Restaurante u WHERE " +
             "CASE " +

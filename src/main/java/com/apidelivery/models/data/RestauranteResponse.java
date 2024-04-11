@@ -14,7 +14,7 @@ public class RestauranteResponse {
     private String especialidade;
     private String foto_Restaurante;
     private String nome_restaurante;
-    private String cnpj_cpf;
+    private String cpf_cnpj;
     private String telefone_Restaurante;
     private String email;
     private String descricao;
@@ -22,7 +22,6 @@ public class RestauranteResponse {
     private String confirmarSenha;
     private EnderecoRestaurante endereco;
 
-    @JsonManagedReference
     private List<ItemMenuRestaurante> itemMenuRestaurante;
 
     public Long getId() {
@@ -71,10 +70,10 @@ public class RestauranteResponse {
 
 
     public String getCnpj_cpf() {
-        return cnpj_cpf;
+        return cpf_cnpj;
     }
-    public void setCnpj_cpf(String cnpj_cpf) {
-        this.cnpj_cpf = cnpj_cpf;
+    public void setCnpj_cpf(String cpf_cnpj) {
+        this.cpf_cnpj = cpf_cnpj;
     }
 
 
@@ -142,7 +141,7 @@ public class RestauranteResponse {
 
     @Override
     public String toString(){
-        return "RestauranteResponse [" + ", Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CNPJ_CPF='" + cnpj_cpf  + ", Telefone='" + telefone_Restaurante
+        return "RestauranteResponse [id=" + id + ", Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CPF_CNPJ='" + cpf_cnpj  + ", Telefone='" + telefone_Restaurante
                 + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + "Itens do Menu" + itemMenuRestaurante + ']';
     }
 }

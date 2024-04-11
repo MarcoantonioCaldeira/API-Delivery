@@ -57,7 +57,6 @@ public class RestauranteController {
     public ResponseEntity<?> searchRestaurantById(@PathVariable("id") Long id) {
         RestauranteResponse restauranteResponse = restauranteService.read(id);
         SystemMessage<RestauranteResponse> userMessage = new SystemMessage<>(HttpStatus.OK.value(), "Restaurante lido com sucesso.", restauranteResponse);
-
         return ResponseEntity.ok().body(userMessage);
     }
 
@@ -65,7 +64,7 @@ public class RestauranteController {
     @PostMapping(value="/save",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public ResponseEntity<?> saveRestaurant(@Valid @RequestBody RestauranteRequest restauranteRequest) { //O RequestBody é o comando que lê o que chegou do http
+    public ResponseEntity<?> saveRestaurant(@Valid @RequestBody RestauranteRequest restauranteRequest) {
         RestauranteResponse restauranteResponse = restauranteService.save(restauranteRequest);
         SystemMessage<RestauranteResponse> userMessage = new SystemMessage<>(HttpStatus.OK.value(), "Restaurante cadastrado com sucesso.", restauranteResponse);
 

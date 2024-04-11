@@ -1,6 +1,5 @@
 package com.apidelivery.models.service.impl;
 
-import com.apidelivery.models.data.ItemMenuRequest;
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
 import com.apidelivery.models.model.ItemMenuRestaurante;
@@ -45,12 +44,12 @@ public class RestauranteServiceImpl implements RestauranteService {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
 
-        List<ItemMenuRestaurante> itensMenu = new ArrayList<>();
+        List<ItemMenuRestaurante> itemMenuRestaurante = new ArrayList<>();
         for (ItemMenuRestaurante itemMenuRequest : entity.getItemMenuRestaurante()) {
             ItemMenuRestaurante itemMenu = new ItemMenuRestaurante( itemMenuRequest.getNomeItem(), itemMenuRequest.getPreco(), restaurante);
-            itensMenu.add(itemMenu);
+            itemMenuRestaurante.add(itemMenu);
         }
-        restaurante.setItemMenuRestaurante(itensMenu);
+        restaurante.setItemMenuRestaurante(itemMenuRestaurante);
 
         restaurante = restauranteRepository.save(restaurante);
         RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
@@ -96,6 +95,11 @@ public class RestauranteServiceImpl implements RestauranteService {
     @Override
     public List<RestauranteResponse> list() {
         return entityConversor.parseListObjects(restauranteRepository.findAll(), RestauranteResponse.class);
+    }
+
+    @Override
+    public List<RestauranteResponse> list(String key) {
+        return null;
     }
 
     @Override

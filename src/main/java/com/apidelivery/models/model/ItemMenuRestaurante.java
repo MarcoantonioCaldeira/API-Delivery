@@ -14,13 +14,13 @@ public class ItemMenuRestaurante implements Serializable {
     private static final long serialVersionUID = 2921851934051192771L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_ITEM_MENU")
     private Long id;
     private String nomeItem;
     private String preco;
     @ManyToOne
-    @JoinColumn(name = "ID_RESTAURANTE")
+    @JoinColumn(name="ID_RESTAURANTE")
     @JsonBackReference
     private Restaurante restaurante;
 
@@ -86,4 +86,5 @@ public class ItemMenuRestaurante implements Serializable {
         ItemMenuRestaurante other = (ItemMenuRestaurante) obj;
         return Objects.equals(id, other.id);
     }
+
 }
