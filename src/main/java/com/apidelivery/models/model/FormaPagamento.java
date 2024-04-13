@@ -35,9 +35,7 @@ public class FormaPagamento implements Serializable {
     }
 
     public void setTipoPagamento(String tipoPagamento) {
-
         this.tipoPagamento = tipoPagamento;
-
     }
 
 

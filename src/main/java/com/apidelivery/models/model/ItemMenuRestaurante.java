@@ -17,31 +17,19 @@ public class ItemMenuRestaurante implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_ITEM_MENU")
     private Long id;
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private String nomeItem;
     private String preco;
     @ManyToOne
     @JoinColumn(name="ID_RESTAURANTE")
     @JsonBackReference
     private Restaurante restaurante;
-
-
-    public ItemMenuRestaurante(String nomeItem, String preco, Restaurante restaurante) {
-        this.nomeItem = nomeItem;
-        this.preco = preco;
-        this.restaurante = restaurante;
-    }
-
-    public ItemMenuRestaurante() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Column(name="NOME_ITEM", length=100, nullable=false)
     public String getNomeItem() {

@@ -11,6 +11,7 @@ import com.apidelivery.models.service.exception.EntityNotFoundException;
 import com.apidelivery.models.service.exception.PasswordConfirmationException;
 import com.apidelivery.models.service.mapper.EntityConversor;
 import com.apidelivery.models.service.pagination.PageRequestConfig;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -37,25 +38,25 @@ public class RestauranteServiceImpl implements RestauranteService {
         Restaurante restaurante = entityConversor.parseObject(entity, Restaurante.class);
 
         Optional<Restaurante> restauranteSaved = restauranteRepository.findByEmail(restaurante.getEmail());
-        if(restauranteSaved.isPresent() && restauranteSaved.get().equals(restaurante)) {
+        if (restauranteSaved.isPresent() && restauranteSaved.get().equals(restaurante)) {
             throw new EmailAlreadyExistsException("O email informado já está cadastrado");
         }
-        if(!entity.getSenha().equals(entity.getConfirmarSenha())) {
+        if (!entity.getSenha().equals(entity.getConfirmarSenha())) {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
 
-        List<ItemMenuRestaurante> itemMenuRestaurante = new ArrayList<>();
+        List<ItemMenuRestaurante> itensMenu = new ArrayList<>();
         for (ItemMenuRestaurante itemMenuRequest : entity.getItemMenuRestaurante()) {
-            ItemMenuRestaurante itemMenu = new ItemMenuRestaurante( itemMenuRequest.getNomeItem(), itemMenuRequest.getPreco(), restaurante);
-            itemMenuRestaurante.add(itemMenu);
+            itemMenuRequest.setRestaurante(restaurante);
+            itensMenu.add(itemMenuRequest);
         }
-        restaurante.setItemMenuRestaurante(itemMenuRestaurante);
-
+        restaurante.setItemMenuRestaurante(itensMenu);
         restaurante = restauranteRepository.save(restaurante);
         RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
-
         return restauranteResponse;
     }
+
+
 
 
     @Override
@@ -97,10 +98,24 @@ public class RestauranteServiceImpl implements RestauranteService {
         return entityConversor.parseListObjects(restauranteRepository.findAll(), RestauranteResponse.class);
     }
 
+//    @Override
+//    public List<RestauranteResponse> list() {
+//        List<Restaurante> restaurantes = restauranteRepository.findAllWithItems(); // Carrega restaurantes com os itens do menu
+//
+//        List<RestauranteResponse> restauranteResponses = new ArrayList<>();
+//        for (Restaurante restaurante : restaurantes) {
+//            RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
+//            restauranteResponses.add(restauranteResponse);
+//        }
+//        return restauranteResponses;
+//    }
+
+
     @Override
     public List<RestauranteResponse> list(String key) {
         return null;
     }
+
 
     @Override
     public Page<RestauranteResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props) {

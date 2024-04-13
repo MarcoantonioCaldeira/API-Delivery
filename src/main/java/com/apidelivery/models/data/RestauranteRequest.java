@@ -76,10 +76,11 @@ public class RestauranteRequest {
 
     @NotBlank(message = "O CNPJ ou CPF do Restaurante é obrigatorio.")
     @NotNull(message = "O CNPJ ou CPF do Restaurante é obrigatorio.")
-    public String getCnpj_cpf() {
+    public String getCpf_cnpj() {
         return cpf_cnpj;
     }
-    public void setCnpj_cpf(String cpf_cnpj) {
+
+    public void setCpf_cnpj(String cpf_cnpj) {
         this.cpf_cnpj = cpf_cnpj;
     }
 

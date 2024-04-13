@@ -20,6 +20,8 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
     Optional<Restaurante> findByEmail(@Param("email") String email);
 
 
+    @Query("SELECT DISTINCT r FROM Restaurante r LEFT JOIN FETCH r.itemMenuRestaurante")
+    List<Restaurante> findAllWithItems();
     @Query(value = "SELECT c FROM Restaurante c", countQuery = "SELECT COUNT(c) FROM Restaurante c")
     Page<Restaurante> findAllPagination(Pageable page);
 

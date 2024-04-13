@@ -21,7 +21,6 @@ public class RestauranteResponse {
     private String senha;
     private String confirmarSenha;
     private EnderecoRestaurante endereco;
-
     private List<ItemMenuRestaurante> itemMenuRestaurante;
 
     public Long getId() {
@@ -69,12 +68,14 @@ public class RestauranteResponse {
     }
 
 
-    public String getCnpj_cpf() {
+    public String getCpf_cnpj() {
         return cpf_cnpj;
     }
-    public void setCnpj_cpf(String cpf_cnpj) {
+
+    public void setCpf_cnpj(String cpf_cnpj) {
         this.cpf_cnpj = cpf_cnpj;
     }
+
 
 
     public String getTelefone_Restaurante() {

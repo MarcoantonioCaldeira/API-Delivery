@@ -2,7 +2,6 @@ package com.apidelivery.models.model;
 
 import jakarta.persistence.*;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +71,7 @@ public class Restaurante implements Serializable {
     }
 
 
-    @Column(name = "CPF_CNPJ", length=100, nullable = false)
+    @Column(name = "CPF_CNPJ", length=100)
     public String getCpf_cnpj() {
         return cpf_cnpj;
     }
