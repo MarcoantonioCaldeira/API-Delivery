@@ -2,7 +2,6 @@ package com.apidelivery.models.data;
 
 import com.apidelivery.models.model.EnderecoRestaurante;
 import com.apidelivery.models.model.ItemMenuRestaurante;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.util.List;
 

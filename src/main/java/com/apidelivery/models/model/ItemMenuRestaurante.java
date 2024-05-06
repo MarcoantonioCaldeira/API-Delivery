@@ -14,7 +14,7 @@ public class ItemMenuRestaurante implements Serializable {
     private static final long serialVersionUID = 2921851934051192771L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_ITEM_MENU")
     private Long id;
     public Long getId() {
@@ -26,10 +26,20 @@ public class ItemMenuRestaurante implements Serializable {
 
     private String nomeItem;
     private String preco;
+
+
+    @org.hibernate.annotations.ForeignKey(name = "restaurante_id")
     @ManyToOne
-    @JoinColumn(name="ID_RESTAURANTE")
-    @JsonBackReference
     private Restaurante restaurante;
+
+    public ItemMenuRestaurante(){
+
+    }
+
+    public ItemMenuRestaurante(String nomeItem, String preco){
+        this.nomeItem = nomeItem;
+        this.preco = preco;
+    }
 
     @Column(name="NOME_ITEM", length=100, nullable=false)
     public String getNomeItem() {

@@ -2,6 +2,7 @@ package com.apidelivery.models.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Objects;
 @Entity
 @Table(name="TB_RESTAURANTE")
 public class Restaurante implements Serializable {
-
+    @Serial
     private static final long serialVersionUID = -429507710884450944L;
 
     @Id
@@ -34,13 +35,12 @@ public class Restaurante implements Serializable {
     private String descricao;
     private String senha;
     private String confirmarSenha;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "restaurante_end_id", referencedColumnName = "ID_END_RESTAURANTE")
     private EnderecoRestaurante endereco;
 
-    @OneToMany(mappedBy = "restaurante", fetch = FetchType.LAZY)
-    private List<ItemMenuRestaurante> itemMenuRestaurante;
+    @OneToMany(mappedBy = "restaurante", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ItemMenuRestaurante> itemMenuRestaurante = new ArrayList<ItemMenuRestaurante>();
 
     public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cpf_cnpj, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha, EnderecoRestaurante endereco, List<ItemMenuRestaurante> itemMenuRestaurante) {
         this.nome_proprietario = nome_proprietario;
@@ -58,7 +58,7 @@ public class Restaurante implements Serializable {
     }
 
     public Restaurante() {
-        itemMenuRestaurante = new ArrayList<>();
+
     }
 
     @Column(name = "NOME_RESTAURANTE", length = 100, nullable = false)

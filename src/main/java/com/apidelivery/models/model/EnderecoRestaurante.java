@@ -36,6 +36,22 @@ public class EnderecoRestaurante implements Serializable {
     private String numero_end;
     private String complemento;
 
+
+    public EnderecoRestaurante(String cep, String uf, String cidade, String bairro, String rua, String numero_end, String complemento){
+        this.cep = cep;
+        this.uf = uf;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.rua = rua;
+        this.numero_end = numero_end;
+        this.complemento = complemento;
+    }
+
+
+    public EnderecoRestaurante(){
+
+    }
+
     @Column(name = "CEP", length=100)
     public String getCep() {
         return cep;

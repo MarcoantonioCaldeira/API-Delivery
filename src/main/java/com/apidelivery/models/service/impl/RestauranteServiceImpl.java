@@ -1,5 +1,4 @@
 package com.apidelivery.models.service.impl;
-
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
 import com.apidelivery.models.model.ItemMenuRestaurante;
@@ -11,14 +10,12 @@ import com.apidelivery.models.service.exception.EntityNotFoundException;
 import com.apidelivery.models.service.exception.PasswordConfirmationException;
 import com.apidelivery.models.service.mapper.EntityConversor;
 import com.apidelivery.models.service.pagination.PageRequestConfig;
-import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,13 +41,6 @@ public class RestauranteServiceImpl implements RestauranteService {
         if (!entity.getSenha().equals(entity.getConfirmarSenha())) {
             throw new PasswordConfirmationException("A senha de confirmação e a senha não conferem");
         }
-
-        List<ItemMenuRestaurante> itensMenu = new ArrayList<>();
-        for (ItemMenuRestaurante itemMenuRequest : entity.getItemMenuRestaurante()) {
-            itemMenuRequest.setRestaurante(restaurante);
-            itensMenu.add(itemMenuRequest);
-        }
-        restaurante.setItemMenuRestaurante(itensMenu);
         restaurante = restauranteRepository.save(restaurante);
         RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
         return restauranteResponse;
@@ -93,22 +83,11 @@ public class RestauranteServiceImpl implements RestauranteService {
         return entityConversor.parseObject(restaurante, RestauranteResponse.class);
     }
 
-    @Override
+    @Transactional(readOnly = true)
     public List<RestauranteResponse> list() {
-        return entityConversor.parseListObjects(restauranteRepository.findAll(), RestauranteResponse.class);
+        List<Restaurante> restaurantes = restauranteRepository.findAll();
+        return entityConversor.parseListObjects(restaurantes, RestauranteResponse.class);
     }
-
-//    @Override
-//    public List<RestauranteResponse> list() {
-//        List<Restaurante> restaurantes = restauranteRepository.findAllWithItems(); // Carrega restaurantes com os itens do menu
-//
-//        List<RestauranteResponse> restauranteResponses = new ArrayList<>();
-//        for (Restaurante restaurante : restaurantes) {
-//            RestauranteResponse restauranteResponse = entityConversor.parseObject(restaurante, RestauranteResponse.class);
-//            restauranteResponses.add(restauranteResponse);
-//        }
-//        return restauranteResponses;
-//    }
 
 
     @Override
