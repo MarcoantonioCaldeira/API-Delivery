@@ -10,8 +10,6 @@ public interface RestauranteService extends GenericService<RestauranteResponse, 
 
     List<RestauranteResponse> list();
 
-    List<RestauranteResponse> list(String key);
-
     Page<RestauranteResponse> listPaged(Integer actualPage, Integer pageSize, String order, String props);
 
     Page<RestauranteResponse> listPagedByKey(String key, Integer actualPage, Integer pageSize, String order, String props);

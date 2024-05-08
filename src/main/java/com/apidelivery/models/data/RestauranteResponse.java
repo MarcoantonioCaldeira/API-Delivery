@@ -22,6 +22,7 @@ public class RestauranteResponse {
     private EnderecoRestaurante endereco;
     private List<ItemMenuRestaurante> itemMenuRestaurante;
 
+
     public Long getId() {
         return id;
     }
@@ -130,6 +131,7 @@ public class RestauranteResponse {
     public void setEndereco(EnderecoRestaurante endereco) {
         this.endereco = endereco;
     }
+
 
     public List<ItemMenuRestaurante> getItemMenuRestaurante() {
         return itemMenuRestaurante;

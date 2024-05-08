@@ -83,16 +83,10 @@ public class RestauranteServiceImpl implements RestauranteService {
         return entityConversor.parseObject(restaurante, RestauranteResponse.class);
     }
 
-    @Transactional(readOnly = true)
+    @Override
     public List<RestauranteResponse> list() {
         List<Restaurante> restaurantes = restauranteRepository.findAll();
         return entityConversor.parseListObjects(restaurantes, RestauranteResponse.class);
-    }
-
-
-    @Override
-    public List<RestauranteResponse> list(String key) {
-        return null;
     }
 
 

@@ -85,4 +85,14 @@ public class ItemMenuRestaurante implements Serializable {
         return Objects.equals(id, other.id);
     }
 
+
+    @Override
+    public String toString() {
+        return "ItemMenuRestaurante{" +
+                "id=" + id +
+                ", nomeItem='" + nomeItem + '\'' +
+                ", preco='" + preco + '\'' +
+                ", restaurante=" + restaurante +
+                '}';
+    }
 }

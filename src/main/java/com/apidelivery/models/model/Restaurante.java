@@ -39,7 +39,7 @@ public class Restaurante implements Serializable {
     @JoinColumn(name = "restaurante_end_id", referencedColumnName = "ID_END_RESTAURANTE")
     private EnderecoRestaurante endereco;
 
-    @OneToMany(mappedBy = "restaurante", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "restaurante", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<ItemMenuRestaurante> itemMenuRestaurante = new ArrayList<ItemMenuRestaurante>();
 
     public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cpf_cnpj, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha, EnderecoRestaurante endereco, List<ItemMenuRestaurante> itemMenuRestaurante) {
