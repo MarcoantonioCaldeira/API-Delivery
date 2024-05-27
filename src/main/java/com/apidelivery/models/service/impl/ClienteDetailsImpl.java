@@ -10,7 +10,7 @@ public class ClienteDetailsImpl implements UserDetails {
     private String email;
     private String Senha;
 
-    public ClienteDetailsImpl (Long id, String email, String Senha
+    public ClienteDetailsImpl (Long id, String email, String Senha,
             Collection<? extends GrantedAuthority> authorities){
             super();
             this.id = id;
@@ -29,7 +29,6 @@ public class ClienteDetailsImpl implements UserDetails {
                 new ArrayList<>()
         );
     }
-
 
     private Collection<? extends GrantedAuthority> authorities;
 
