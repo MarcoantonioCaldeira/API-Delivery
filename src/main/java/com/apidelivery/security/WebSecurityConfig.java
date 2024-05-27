@@ -34,7 +34,7 @@ public class WebSecurityConfig {
 
     @Bean
     public Filter authFilterToken() {
-        return new AuthFilterToken();
+        return (Filter) new AuthFilterToken();
     }
 
     @Bean
