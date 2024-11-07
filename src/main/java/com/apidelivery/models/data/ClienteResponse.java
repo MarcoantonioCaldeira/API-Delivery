@@ -84,12 +84,9 @@ public class ClienteResponse {
         this.confirmarSenha = confirmar_senha;
     }
 
-
     @Override
     public String toString() {
-        return "UserRequest [id=" + id + ", Forma de pagamento " + formaPagamento + " + Endereço=" + endereco + ", Email="+ email +", telefone=" + telefone + ", nome=" + nome
-                + ", Senha=" + senha + "Confirmar Senha " + confirmarSenha + "]";
-        }
-
+        return "UserRequest [Email=" + email + ", Telefone=" + telefone + ", nome=" + nome + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + ", Forma de Pagamento=" + formaPagamento + ", Endereço=" + endereco + "]";
+    }
 
 }

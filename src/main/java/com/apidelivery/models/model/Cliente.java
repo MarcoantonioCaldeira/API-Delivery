@@ -15,18 +15,7 @@ public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = 6679001107878287172L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "ID_CLIENTE")
 	private Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	private String email;
 
@@ -63,6 +52,16 @@ public class Cliente implements Serializable{
 
 	}
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_cliente")
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Column(name="USERNAME", length=100, nullable=false)
 	public String getNome() {
@@ -142,10 +141,5 @@ public class Cliente implements Serializable{
 
 		Cliente other = (Cliente) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [nome=" + nome + ", Email=" + email + ", telefone=" + telefone + "senha=" + Senha + "Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco +"Forma de Pagamento " + formaPagamento + "]";
 	}
 }

@@ -2,7 +2,6 @@ package com.apidelivery.web.controllers;
 
 import com.apidelivery.models.data.ClienteRequest;
 import com.apidelivery.models.data.ClienteResponse;
-import com.apidelivery.models.data.RestauranteResponse;
 import com.apidelivery.models.model.Cliente;
 
 import com.apidelivery.models.service.ClienteService;

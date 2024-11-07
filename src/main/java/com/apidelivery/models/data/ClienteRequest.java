@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotNull;
 
 public class ClienteRequest {
 
-    private Long id;
     private String email;
     private String telefone;
     private String nome;
@@ -16,16 +15,6 @@ public class ClienteRequest {
     private String confirmarSenha;
     private FormaPagamento formaPagamento;
     private EnderecoCliente endereco;
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
 
     @Email(message = "e-mail inválido")
@@ -100,11 +89,8 @@ public class ClienteRequest {
         this.endereco = endereco;
     }
 
-
     @Override
     public String toString() {
-        return "UserRequest [id=" + id + ", Forma de pagamento " + formaPagamento + " + Nome=" + nome + ", Telefone="+ telefone +", email=" + email + ", Senha=" + senha
-                + ", Confirmação de Senha=" + confirmarSenha + "Endereço " + endereco + "]";
+        return "UserRequest [Email=" + email + ", Telefone=" + telefone + ", nome=" + nome + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + ", Forma de Pagamento=" + formaPagamento + ", Endereço=" + endereco + "]";
     }
-
 }

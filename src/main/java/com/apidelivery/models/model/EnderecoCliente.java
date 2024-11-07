@@ -13,7 +13,6 @@ public class EnderecoCliente implements Serializable {
     @Serial
     private static final long serialVersionUID = 3300710347277034767L;
 
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID_END_CLIENTE")

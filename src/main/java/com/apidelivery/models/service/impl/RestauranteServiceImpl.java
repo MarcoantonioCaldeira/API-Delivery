@@ -1,7 +1,6 @@
 package com.apidelivery.models.service.impl;
 import com.apidelivery.models.data.RestauranteRequest;
 import com.apidelivery.models.data.RestauranteResponse;
-import com.apidelivery.models.model.ItemMenuRestaurante;
 import com.apidelivery.models.model.Restaurante;
 import com.apidelivery.models.repository.RestauranteRepository;
 import com.apidelivery.models.service.RestauranteService;
@@ -16,7 +15,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 

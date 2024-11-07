@@ -18,13 +18,6 @@ public class Restaurante implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_RESTAURANTE")
     private Long id;
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
     private String nome_proprietario;
     private String especialidade;
     private String foto_Restaurante;
@@ -39,10 +32,7 @@ public class Restaurante implements Serializable {
     @JoinColumn(name = "restaurante_end_id", referencedColumnName = "ID_END_RESTAURANTE")
     private EnderecoRestaurante endereco;
 
-    @OneToMany(mappedBy = "restaurante", orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<ItemMenuRestaurante> itemMenuRestaurante = new ArrayList<ItemMenuRestaurante>();
-
-    public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cpf_cnpj, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha, EnderecoRestaurante endereco, List<ItemMenuRestaurante> itemMenuRestaurante) {
+    public Restaurante(String nome_proprietario, String especialidade, String foto_Restaurante, String nome_restaurante, String cpf_cnpj, String telefone_Restaurante, String email, String descricao, String senha, String confirmarSenha, EnderecoRestaurante endereco) {
         this.nome_proprietario = nome_proprietario;
         this.especialidade = especialidade;
         this.foto_Restaurante = foto_Restaurante;
@@ -54,11 +44,17 @@ public class Restaurante implements Serializable {
         this.senha = senha;
         this.confirmarSenha = confirmarSenha;
         this.endereco = endereco;
-        this.itemMenuRestaurante = itemMenuRestaurante;
     }
 
     public Restaurante() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Column(name = "NOME_RESTAURANTE", length = 100, nullable = false)
@@ -166,14 +162,6 @@ public class Restaurante implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<ItemMenuRestaurante> getItemMenuRestaurante() {
-        return itemMenuRestaurante;
-    }
-
-    public void setItemMenuRestaurante(List<ItemMenuRestaurante> itemMenuRestaurante) {
-        this.itemMenuRestaurante = itemMenuRestaurante;
-    }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -192,11 +180,5 @@ public class Restaurante implements Serializable {
         Restaurante other = (Restaurante) obj;
         return Objects.equals(id, other.id);
     }
-
-    @Override
-    public String toString() {
-        return "Restaurante [Nome do Proprietario=" + nome_proprietario + ", Especialidade=" + especialidade + ", Foto=" + foto_Restaurante + "Nome do Restaurante=" + nome_restaurante + "CPF_CNPJ=" + cpf_cnpj + "Telefone " + telefone_Restaurante + "Email" + email + "Descrição" + descricao + "Senha" + senha + "Confirmar Senha" + confirmarSenha + "Endereco " + endereco + "Itens do Menu" + itemMenuRestaurante + "]";
-    }
-
 }
 

@@ -1,7 +1,7 @@
 package com.apidelivery.models.data;
 
 import com.apidelivery.models.model.EnderecoRestaurante;
-import com.apidelivery.models.model.ItemMenuRestaurante;
+import com.apidelivery.models.model.Item;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class RestauranteResponse {
     private String senha;
     private String confirmarSenha;
     private EnderecoRestaurante endereco;
-    private List<ItemMenuRestaurante> itemMenuRestaurante;
+    private List<Item> item;
 
 
     public Long getId() {
@@ -133,17 +133,17 @@ public class RestauranteResponse {
     }
 
 
-    public List<ItemMenuRestaurante> getItemMenuRestaurante() {
-        return itemMenuRestaurante;
+    public List<Item> getItemMenuRestaurante() {
+        return item;
     }
 
-    public void setItemMenuRestaurante(List<ItemMenuRestaurante> itemMenuRestaurante) {
-        this.itemMenuRestaurante = itemMenuRestaurante;
+    public void setItemMenuRestaurante(List<Item> item) {
+        this.item = item;
     }
 
     @Override
     public String toString(){
         return "RestauranteResponse [id=" + id + ", Nome proprietario='" + nome_proprietario  + ", Especialidade='" + especialidade  + "Foto do Restaurante: " + foto_Restaurante + ", Nome do restaurante='" + nome_restaurante + ", CPF_CNPJ='" + cpf_cnpj  + ", Telefone='" + telefone_Restaurante
-                + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + "Itens do Menu" + itemMenuRestaurante + ']';
+                + ", Email=" + email  + "Descricao=" + descricao + ", senha=" + senha + ", Confirmação de Senha=" + confirmarSenha + "Endereco " + endereco + "Itens do Menu" + item + ']';
     }
 }
